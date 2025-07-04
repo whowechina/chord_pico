@@ -1,4 +1,4 @@
-24831953752761633
+24835455932201139
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -99652,6 +99652,13 @@ mounting hole 3.2mm no annular m3
 0
 0
 chord_pico
+ITR1502
+package for Everlight ITR8307 with PCB cutout, light-direction upwards, see http://www.everlight.com/file/ProductFile/ITR8307.pdf
+refective opto couple photo coupler
+0
+4
+4
+chord_pico
 MountingHole_3.2mm_M3
 Mounting Hole 3.2mm, no annular, M3
 mounting hole 3.2mm no annular m3
@@ -99840,6 +99847,13 @@ Through hole pin header THT 1x05 2.54mm single row
 0
 6
 6
+chord_pico
+TO-92_SS49E
+TO-92Flat package, often used for hall sensors, drill 0.75mm (see e.g. http://www.ti.com/lit/ds/symlink/drv5023.pdf)
+to-92Flat hall sensor
+0
+3
+3
 chord_pico
 WS2812B-1204
 

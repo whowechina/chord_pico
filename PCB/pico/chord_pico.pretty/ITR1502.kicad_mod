@@ -1,0 +1,152 @@
+(footprint "ITR1502"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "package for Everlight ITR8307 with PCB cutout, light-direction upwards, see http://www.everlight.com/file/ProductFile/ITR8307.pdf")
+	(tags "refective opto couple photo coupler")
+	(property "Reference" "REF**"
+		(at -3.5 0 90)
+		(layer "F.SilkS")
+		(uuid "df2fd35d-8baa-4bac-bc5e-882284b2245f")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "ITR1502"
+		(at 0 4.8 0)
+		(layer "F.Fab")
+		(uuid "1427b1b7-a8f2-4143-9c24-3aff06ca7a1a")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "8b8e6538-51a5-42c7-a6f0-bb4050f101be")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "420852d7-683f-456c-b9b3-830d6d899215")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start -2 -2)
+		(end -2 1.81)
+		(stroke
+			(width 0.12)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "7caba07c-3faf-4bcd-9009-fda6e6e3a80a")
+	)
+	(fp_line
+		(start 2 -2)
+		(end 2 2)
+		(stroke
+			(width 0.12)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "23165c7a-af7b-4f2b-af41-a0951f376bca")
+	)
+	(fp_rect
+		(start -0.3 -3.15)
+		(end 0.2 -2.65)
+		(stroke
+			(width 0.15)
+			(type default)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "f5fe2963-953f-4122-854c-d25cb25cb1fb")
+	)
+	(fp_text user "1"
+		(at -2.7 3 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "f0d6d9b2-5ae6-46e1-a1e8-5821c129e0e8")
+		(effects
+			(font
+				(size 0.8 0.8)
+				(thickness 0.1)
+			)
+			(justify left bottom)
+		)
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 0.2 0)
+		(layer "F.Fab")
+		(uuid "a2e55af7-9a00-4a0a-b0c0-20c84696ac8f")
+		(effects
+			(font
+				(size 0.75 0.75)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd roundrect
+		(at -1.15 1.6)
+		(size 1.2 1.6)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.2)
+		(uuid "55856537-7f29-4067-b6e4-f10354764108")
+	)
+	(pad "2" smd roundrect
+		(at 1.15 1.6)
+		(size 1.2 1.6)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.2)
+		(uuid "8a6fa1be-2b6d-486c-af9c-7743c243e6c6")
+	)
+	(pad "3" smd roundrect
+		(at 1.15 -1.6)
+		(size 1.2 1.6)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.2)
+		(uuid "59df96a1-25b4-4a4f-a069-86f106d87eac")
+	)
+	(pad "4" smd roundrect
+		(at -1.15 -1.6)
+		(size 1.2 1.6)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.2)
+		(uuid "4a628286-fb4f-4eeb-9821-7088da237a68")
+	)
+	(embedded_fonts no)
+	(model "${KIPRJMOD}/3dmodels/ITR1502.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz -0 -0 -90)
+		)
+	)
+)
