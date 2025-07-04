@@ -10,8 +10,9 @@
 
 #define RGB_ORDER GRB // or RGB
 
- /* BT * 4, FX * 2, START, AUX * 2 */
-#define BUTTON_DEF { 14, 15 }
+ /* Fader * 10, AUX * 2 */
+#define BUTTON_DEF { 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 14, 15 }
+#define BUTTON_NOPULL { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0 }
 
 #define ADC_MUX_EN 21
 #define ADC_MUX_A0 20
@@ -20,10 +21,6 @@
 #define ADC_MUX_A3 17
 
 #define ADC_CHANNEL 0
-
-/* 12 for keys + 4 for faders */
-#define HALL_CHN_MAP { 5, 4, 3, 2, 1, 0, 8, 9, 10, 11, 12, 13, 6, 7, 15, 14 }
-#define HALL_KEY_NUM 12
-
+#define HALL_KEY_MAP { 5, 4, 3, 2, 1, 0, 8, 9, 10, 11, 12, 13 }
 
 #endif

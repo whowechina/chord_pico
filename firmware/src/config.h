@@ -30,15 +30,16 @@ typedef struct __attribute__((packed)) {
     } fader;
     struct {
         rgb_hsv_t colors[12];
-        uint8_t level;
-        uint8_t not_used[15];
+        uint8_t level_fader;
+        uint8_t level_key;
+        uint8_t not_used[14];
     } light;
 } chord_cfg_t;
 
 typedef struct {
     struct {
-        bool sensor;
-        bool velocity;
+        bool hall;
+        bool fader;
     } debug;
 } chord_runtime_t;
 

@@ -23,11 +23,11 @@ enum {
     HID_COLLECTION(HID_COLLECTION_APPLICATION),                          \
         HID_REPORT_ID(REPORT_ID_JOYSTICK)                                \
         HID_USAGE_PAGE(HID_USAGE_PAGE_BUTTON),                           \
-        HID_USAGE_MIN(1), HID_USAGE_MAX(21),                             \
+        HID_USAGE_MIN(1), HID_USAGE_MAX(24),                             \
         HID_LOGICAL_MIN(0), HID_LOGICAL_MAX(1),                          \
-        HID_REPORT_COUNT(21), HID_REPORT_SIZE(1),                        \
+        HID_REPORT_COUNT(24), HID_REPORT_SIZE(1),                        \
         HID_INPUT(HID_DATA | HID_VARIABLE | HID_ABSOLUTE),               \
-        HID_REPORT_COUNT(11), HID_REPORT_SIZE(1),  /* Padding */         \
+        HID_REPORT_COUNT(8), HID_REPORT_SIZE(1),  /* Padding */          \
         HID_INPUT(HID_CONSTANT | HID_VARIABLE | HID_ABSOLUTE),           \
         HID_USAGE_PAGE(HID_USAGE_PAGE_DESKTOP),                          \
         HID_LOGICAL_MIN(0x00), HID_LOGICAL_MAX_N(0x00ff, 2),             \
@@ -36,15 +36,15 @@ enum {
         HID_INPUT(HID_DATA | HID_VARIABLE | HID_ABSOLUTE),               \
     HID_COLLECTION_END
 
-#define CHORD_PICO_REPORT_DESC_LIGHTS                                   \
+#define CHORD_PICO_REPORT_DESC_LIGHTS                                    \
   HID_USAGE_PAGE(HID_USAGE_PAGE_DESKTOP),                                \
   HID_USAGE(0x00),                                                       \
   HID_COLLECTION(HID_COLLECTION_APPLICATION),                            \
       HID_REPORT_ID(REPORT_ID_LIGHTS)                                    \
-      HID_REPORT_COUNT(19), HID_REPORT_SIZE(8),                          \
+      HID_REPORT_COUNT(48), HID_REPORT_SIZE(8),                          \
       HID_LOGICAL_MIN(0x00), HID_LOGICAL_MAX_N(0x00ff, 2),               \
       HID_USAGE_PAGE(HID_USAGE_PAGE_ORDINAL),                            \
-      HID_STRING_MINIMUM(6), HID_STRING_MAXIMUM(24),                     \
+      HID_STRING_MINIMUM(6), HID_STRING_MAXIMUM(53),                     \
       HID_USAGE_MIN(1), HID_USAGE_MAX(255),                              \
       HID_OUTPUT(HID_DATA | HID_VARIABLE | HID_ABSOLUTE),                \
       HID_REPORT_COUNT(1), HID_REPORT_SIZE(8), /* Padding */             \

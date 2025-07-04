@@ -15,7 +15,8 @@ static chord_cfg_t default_cfg = {
     .fader = {
     },
     .light = {
-        .level = 128,
+        .level_fader = 160,
+        .level_key = 96,
     },
 };
 

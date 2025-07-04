@@ -18,37 +18,36 @@
 
 #include "config.h"
 
-static const uint8_t key_map[] = HALL_CHN_MAP;
+static const uint8_t key_map[] = HALL_KEY_MAP;
 
-#define HALL_CHN_NUM count_of(key_map)
-static_assert(HALL_CHN_NUM >= HALL_KEY_NUM);
+#define HALL_KEY_NUM count_of(key_map)
 
-static bool hall_presence[HALL_CHN_NUM];
-static uint16_t reading[HALL_CHN_NUM];
+static bool hall_present[HALL_KEY_NUM];
+static uint16_t reading[HALL_KEY_NUM];
 bool key_actuated[HALL_KEY_NUM];
 
 static void hall_discovery()
 {
     hall_update();
-    for (int i = 0; i < HALL_CHN_NUM; i++) {
-        hall_presence[i] = (reading[i] > 200);
+    for (int i = 0; i < HALL_KEY_NUM; i++) {
+        hall_present[i] = (reading[i] > 200);
     }
 }
 
-bool hall_present(uint8_t chn)
+bool hall_is_present(uint8_t key)
 {
-    if (chn >= HALL_CHN_NUM) {
+    if (key >= HALL_KEY_NUM) {
         return false;
     }
-    return hall_presence[chn];
+    return hall_present[key];
 }
 
-uint16_t hall_raw(uint8_t chn)
+uint16_t hall_raw(uint8_t key)
 {
-    if (chn >= HALL_CHN_NUM) {
+    if (key >= HALL_KEY_NUM) {
         return 0;
     }
-    return reading[chn];
+    return reading[key];
 }
 
 void hall_init()
@@ -108,7 +107,7 @@ static inline uint16_t read_avg(int count)
 static void read_sensor(int chn, int avg)
 {
     reading[chn] = read_avg(avg);
-    if (chord_runtime.debug.sensor) {
+    if (chord_runtime.debug.hall) {
         if (chn == 0) {
             printf("\n");
         }
@@ -134,7 +133,7 @@ static void do_triggering()
 
 void hall_update()
 {
-    for (int i = 0; i < HALL_CHN_NUM; i++) {
+    for (int i = 0; i < HALL_KEY_NUM; i++) {
         select_channel(i);
         sleep_us(5);
         read_sensor(i, 16);
@@ -194,20 +193,20 @@ uint8_t hall_key_travel_byte(uint8_t key)
     return (range != 0) ? pos * 255 / range : 0;
 }
 
-static void read_sensors_avg(uint16_t avg[HALL_CHN_NUM])
+static void read_sensors_avg(uint16_t avg[HALL_KEY_NUM])
 {
     const int avg_count = 200;
-    uint32_t sum[HALL_CHN_NUM] = {0};
+    uint32_t sum[HALL_KEY_NUM] = {0};
 
     for (int i = 0; i < avg_count; i++) {
-        for (int j = 0; j < HALL_CHN_NUM; j++) {
+        for (int j = 0; j < HALL_KEY_NUM; j++) {
             select_channel(j);
             sleep_us(5);
             read_sensor(j, 32);
             sum[j] += reading[j];
         }
     }
-    for (int i = 0; i < HALL_CHN_NUM; i++) {
+    for (int i = 0; i < HALL_KEY_NUM; i++) {
         avg[i] = sum[i] / avg_count;
     }
 }

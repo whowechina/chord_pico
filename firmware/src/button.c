@@ -17,8 +17,13 @@
 #include "board_defs.h"
 
 static const uint8_t button_gpio[] = BUTTON_DEF;
+#define BUTTON_NUM (count_of(button_gpio))
 
-#define BUTTON_NUM (sizeof(button_gpio))
+#ifdef BUTTON_NOPULL
+static const bool button_nopull[] = BUTTON_NOPULL;
+#else
+static const bool button_nopull[BUTTON_NUM] = {0};
+#endif
 
 static bool sw_val[BUTTON_NUM]; /* true if pressed */
 static uint64_t sw_freeze_time[BUTTON_NUM];
@@ -34,7 +39,9 @@ void button_init()
         gpio_init(gpio);
         gpio_set_function(gpio, GPIO_FUNC_SIO);
         gpio_set_dir(gpio, GPIO_IN);
-        gpio_pull_up(gpio);
+        if (!button_nopull[i]) {
+            gpio_pull_up(gpio);
+        }
     }
 
     /* make valid initial reading */

@@ -21,7 +21,8 @@
 static void disp_light()
 {
     printf("[Light]\n");
-    printf("  Level: %d.\n", chord_cfg->light.level);
+    printf("  Key Level: %d.\n", chord_cfg->light.level_key);
+    printf("  Fader Level: %d.\n", chord_cfg->light.level_fader);
 }
 
 static void disp_fader()
@@ -33,11 +34,11 @@ static void disp_hall()
 {
     printf("[Hall Effect Button]\n");
     for (int i = 0; i < hall_keynum(); i++) {
-        if (!hall_present(i)) {
-            printf("  Key %d: Not Present.\n", i + 1);
+        if (!hall_is_present(i)) {
+            printf("  Key %2d: Not Present.\n", i + 1);
             continue;
         }
-        printf("  Key %d: %4d->%4d, On: %2d, Off: %2d.\n",
+        printf("  Key %2d: %4d->%4d, On: %2d, Off: %2d.\n",
                i + 1, chord_cfg->calibrated.up[i], chord_cfg->calibrated.down[i],
                 chord_cfg->trigger.on[i] + 1, chord_cfg->trigger.off[i] + 1);
     }
@@ -77,19 +78,30 @@ void handle_display(int argc, char *argv[])
 
 static void handle_level(int argc, char *argv[])
 {
-    const char *usage = "Usage: level <0..255>\n";
-    if (argc != 1) {
+    const char *usage = "Usage: level <key|fader> <0..255>\n";
+    if (argc != 2) {
         printf(usage);
         return;
     }
 
-    int level = cli_extract_non_neg_int(argv[0], 0);
+    const char *choices[] = {"key", "fader"};
+    int match = cli_match_prefix(choices, count_of(choices), argv[0]);
+    if (match < 0) {
+        printf(usage);
+        return;
+    }
+
+    int level = cli_extract_non_neg_int(argv[1], 0);
     if ((level < 0) || (level > 255)) {
         printf(usage);
         return;
     }
 
-    chord_cfg->light.level = level;
+    if (match == 0) {
+        chord_cfg->light.level_key = level;
+    } else if (match == 1) {
+        chord_cfg->light.level_fader = level;
+    }
     config_changed();
     disp_light();
 }
@@ -153,11 +165,11 @@ static void handle_calibrate(int argc, char *argv[])
 static void handle_trigger(int argc, char *argv[])
 {
     const char *usage = "Usage: trigger <all|KEY> <ON> <OFF>\n"
-                        "  KEY: 1..6\n"
+                        "  KEY: 1..%d\n"
                         "   ON: 1..36, distance for actuation.\n"
                         "  OFF: 1..36, distance for reset.\n";
     if (argc != 3) {
-        printf(usage);
+        printf(usage, hall_keynum());
         return;
     }
 
@@ -168,7 +180,7 @@ static void handle_trigger(int argc, char *argv[])
     
     if ((!all_key && (key < 0)) || (key >= hall_keynum()) ||
         (on < 0) || (on > 35) || (off < 0) || (off > 35)) {
-        printf(usage);
+        printf(usage, hall_keynum());
         return;
     }
 
@@ -185,18 +197,18 @@ static void handle_trigger(int argc, char *argv[])
 
 static void handle_debug(int argc, char *argv[])
 {
-    const char *usage = "Usage: debug <sensor|velocity>\n";
+    const char *usage = "Usage: debug <hall|fader>\n";
     if (argc != 1) {
         printf(usage);
         return;
     }
-    const char *choices[] = {"sensor", "velocity"};
+    const char *choices[] = {"hall", "fader"};
     switch (cli_match_prefix(choices, count_of(choices), argv[0])) {
         case 0:
-            chord_runtime.debug.sensor ^= true;
+            chord_runtime.debug.hall ^= true;
             break;
         case 1:
-            chord_runtime.debug.velocity ^= true;
+            chord_runtime.debug.fader ^= true;
             break;
         default:
             printf(usage);

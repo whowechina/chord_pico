@@ -62,17 +62,17 @@ uint32_t rgb32_from_hsv(uint8_t h, uint8_t s, uint8_t v)
 
     switch (region) {
         case 0:
-            return v << 16 | t << 8 | p;
+            return rgb32(v, t, p, false);
         case 1:
-            return q << 16 | v << 8 | p;
+            return rgb32(q, v, p, false);
         case 2:
-            return p << 16 | v << 8 | t;
+            return rgb32(p, v, t, false);
         case 3:
-            return p << 16 | q << 8 | v;
+            return rgb32(p, q, v, false);
         case 4:
-            return t << 16 | p << 8 | v;
+            return rgb32(t, p, v, false);
         default:
-            return v << 16 | p << 8 | q;
+            return rgb32(v, p, q, false);
     }
 }
 
@@ -87,15 +87,15 @@ static void drive_led()
     }
 }
 
-static inline uint32_t apply_level(uint32_t color)
+static inline uint32_t apply_level(uint32_t color, uint8_t level)
 {
     unsigned r = (color >> 16) & 0xff;
     unsigned g = (color >> 8) & 0xff;
     unsigned b = color & 0xff;
 
-    r = r * chord_cfg->light.level / 255;
-    g = g * chord_cfg->light.level / 255;
-    b = b * chord_cfg->light.level / 255;
+    r = r * level / 255;
+    g = g * level / 255;
+    b = b * level / 255;
 
     return r << 16 | g << 8 | b;
 }
@@ -142,7 +142,7 @@ void light_set_key(uint8_t index, uint32_t color, bool hid)
     if (index >= count_of(buf_key)) {
         return;
     }
-    buf_key[index] = apply_level(color);
+    buf_key[index] = apply_level(color, chord_cfg->light.level_key);
 }
 
 void light_set_fader(uint8_t index, uint32_t color, bool hid)
@@ -154,5 +154,5 @@ void light_set_fader(uint8_t index, uint32_t color, bool hid)
     if (index >= count_of(buf_fader)) {
         return;
     }
-    buf_fader[index] = apply_level(color);
+    buf_fader[index] = apply_level(color, chord_cfg->light.level_fader);
 }
