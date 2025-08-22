@@ -25,11 +25,6 @@ static void disp_light()
     printf("  Fader Level: %d.\n", chord_cfg->light.level_fader);
 }
 
-static void disp_fader()
-{
-    printf("[Fader]\n");
-}
-
 static void disp_hall()
 {
     printf("[Hall Effect Button]\n");
@@ -46,7 +41,7 @@ static void disp_hall()
 
 void handle_display(int argc, char *argv[])
 {
-    const char *usage = "Usage: display [light|fader|he]\n";
+    const char *usage = "Usage: display [light|he]\n";
     if (argc > 1) {
         printf(usage);
         return;
@@ -54,20 +49,16 @@ void handle_display(int argc, char *argv[])
 
     if (argc == 0) {
         disp_light();
-        disp_fader();
         disp_hall();
         return;
     }
 
-    const char *choices[] = {"light", "fader", "he" };
+    const char *choices[] = {"light", "he" };
     switch (cli_match_prefix(choices, count_of(choices), argv[0])) {
         case 0:
             disp_light();
             break;
         case 1:
-            disp_fader();
-            break;
-        case 2:
             disp_hall();
             break;
         default:
@@ -104,57 +95,6 @@ static void handle_level(int argc, char *argv[])
     }
     config_changed();
     disp_light();
-}
-
-static void handle_fader_rate(const char *rate)
-{
-    config_changed();
-    disp_fader();
-}
-
-static void handle_fader_invert(int side, const char *dir)
-{
-    const char *usage = "Usage: fader <left|right> <forward|reversed>\n";
-
-    const char *choices[] = {"forward", "reversed"};
-    int match = cli_match_prefix(choices, count_of(choices), dir);
-
-    if (match < 0) {
-        printf(usage);
-        return;
-    }
-
-    if ((side >= 0) && (side < 2)) {
-        chord_cfg->fader.reversed[side] = match;
-    }
-
-    config_changed();
-    disp_fader();
-}
-
-static void handle_fader(int argc, char *argv[])
-{
-    const char *usage = "Usage: fader rate <units_per_turn>\n"
-                        "       fader <left|right> <forward|reverse>\n"
-                        "  units_per_turn: 20..255\n";
-    if (argc != 2) {
-        printf(usage);
-        return;
-    }
-
-    const char *choices[] = { "left", "right", "rate" };
-    int match = cli_match_prefix(choices, count_of(choices), argv[0]);
-    if (match < 0) {
-        printf(usage);
-        return;
-    }
-
-    if (match == 2) {
-        handle_fader_rate(argv[1]);
-        return;
-    }
-
-    handle_fader_invert(match, argv[1]);
 }
 
 static void handle_calibrate(int argc, char *argv[])
@@ -231,7 +171,6 @@ void commands_init()
 {
     cli_register("display", handle_display, "Display all config.");
     cli_register("level", handle_level, "Set LED brightness level.");
-    cli_register("fader", handle_fader, "Set fader rate and direction.");
     cli_register("calibrate", handle_calibrate, "Calibrate the key sensors.");
     cli_register("trigger", handle_trigger, "Set Hall effect switch triggering.");
     cli_register("debug", handle_debug, "Toggle debug features.");
