@@ -14,6 +14,10 @@ chord_cfg_t *chord_cfg;
 static chord_cfg_t default_cfg = {
     .fader = {
     },
+    .trigger = {
+        .on = { 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24 },
+        .off = { 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28 },
+    },
     .light = {
         .level_fader = 160,
         .level_key = 96,
