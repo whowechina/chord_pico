@@ -19,10 +19,11 @@
 static const uint8_t button_gpio[] = BUTTON_DEF;
 #define BUTTON_NUM (count_of(button_gpio))
 
-#ifdef BUTTON_NOPULL
-static const bool button_nopull[] = BUTTON_NOPULL;
+#ifdef BUTTON_PULL_UPDOWN
+static const int8_t button_pull[] = BUTTON_PULL_UPDOWN;
 #else
-static const bool button_nopull[BUTTON_NUM] = {0};
+static const int8_t button_pull[BUTTON_NUM] =
+                  { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
 #endif
 
 static bool sw_val[BUTTON_NUM]; /* true if pressed */
@@ -39,8 +40,12 @@ void button_init()
         gpio_init(gpio);
         gpio_set_function(gpio, GPIO_FUNC_SIO);
         gpio_set_dir(gpio, GPIO_IN);
-        if (!button_nopull[i]) {
+        if (button_pull[i] == 1) {
             gpio_pull_up(gpio);
+        } else if (button_pull[i] == -1) {
+            gpio_pull_down(gpio);
+        } else {
+            gpio_disable_pulls(gpio);
         }
     }
 

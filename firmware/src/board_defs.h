@@ -12,7 +12,7 @@
 
  /* Fader * 10, AUX * 2 */
 #define BUTTON_DEF { 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 14, 15 }
-#define BUTTON_NOPULL { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0 }
+#define BUTTON_PULL_UPDOWN { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 1 }
 
 #define ADC_MUX_EN 21
 #define ADC_MUX_A0 20
