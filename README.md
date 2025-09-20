@@ -109,8 +109,8 @@ I made this project in my personal time without any sponsorship. I will continue
 * Keys: `Key Combo - All Keys`, clear or transparent.
 * Rear Base: `Chord Pico - Rear.stl`, black. Enable support and use support material to have better screw holes.
 * Front Base: `Chord Pico - Front.stl`, black. Enable support and use support material to have better screw holes.
-* Panel: `Chord Pico - Panel Combo.3mf`, a multi-color system is highly recommended, make the "Panel White Layer" white, others black.
-* Brim (Key Stopper): `Chord Pico - Brim Insert.stl` is recommended, but if you can't use heat-set inserts, use `Chord Pico - Brim.stl` instead (see notes below). Use black filament.
+* Panel: `Chord Pico - Panel Combo.3mf`, a multi-color system is highly recommended, make the "Panel White Layer" white, others black. Print upside down.
+* Brim (Key Stopper): `Chord Pico - Brim Insert.stl` is recommended, but if you can't use heat-set inserts, use `Chord Pico - Brim.stl` instead (see notes below). Use black filament. Print upside down.
 * 2x Fader Slider: `Slider PTFE.stl` is recommended, but if you can't find PTFE tube, use `Slider Thruhole.stl` instead (see notes below). Must be white.  
 * 2x Fader Seal: `Slider Seal.stl`, white.
 * 4x Rail Fixers: `Chord Pico - Rail Fixer.stl`, white.
