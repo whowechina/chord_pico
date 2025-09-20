@@ -130,8 +130,10 @@ Please note that the quantities of the screws are approximate.
 * 24x M2\*7mm or M2\*6mm screws for the slider.
 * 2x M2\*16mm for the knob.
 
+* 7x M2\*3mm\*3mm (outer diameter\*height) heat-set inserts, if you use them for the brim.
+
 * 1x 2mm\*240mm steel shaft for the keys, if you can't find one, you can use 3x 2mm\*80mm or 4x 4mm\*60mm, or even 6x 2mm\*40mm instead.
-* 
+
 * 4x 2mm\*70mm (diameter\*length) steel shafts for the fader rails.
 
 * 12x 0.4\*5\*10\*6N (0.4mm wire diameter, 5mm outer diameter, 10mm free length, 6 turns) springs.
@@ -185,7 +187,7 @@ Please note that the design may change in the future, but the assembly steps wil
 13. Install the knobs. The left is green and the right one is red. Secure them using M2\*16mm screws.  
     <img src="doc/assembly_12.jpg" width="70%">
 
-14. Install the brim (key stopper) part. Use the M2\*10mm screws to secure it to the base.  
+14. Install the brim (key stopper) part. If you use heat-set inserts, use the proper tools to install them into the brim (key stopper) first. Use M2\*10mm screws to secure the brim to the front base.  
     <img src="doc/assembly_13.jpg" width="70%">
 
 15. Attach the anti-slip pads to the bottom of the rear base.
