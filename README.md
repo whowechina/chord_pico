@@ -64,9 +64,8 @@ I made this project in my personal time without any sponsorship. I will continue
 * 1x TPS7A2042PDBVR (4.2V) or LP5907MFX-4.5 (4.5V) LDO (SOT23-5), (U7).  
   https://www.ti.com/product/TPS7A20/part-details/TPS7A2042PDBVR
 * 1x LM4040 3.0V Shunt Voltage Reference, in SOT23-3 (U6). There're many models; make sure it's 3.0V and in an SOT23-3 package.
-  https://www.ti.com/product/LM4040AIM3-2.5
 * 1x Zener diode 3.0 or 3.3V, in SOD-123F (D1).  
-* 42x WS2812B-3528 RGB LEDs (D1 to D42). D1 to D12 and D35 to D38 are mandatory; others are for better lighting.  
+* 42x WS2812B-3528 RGB LEDs (D1 to D42). D1 to D12 and D35 to D38 are mandatory; others are for better lighting.
 * 20x to 30x 0603 0.1uF (0.1~1uF all fine) capacitors. CC1 to CC3 are mandatory; others are optional (see notes below).
 * 3x 0603 5.1kohm resistors, 2 for USB (R1, R2) and 1 for signal divider (R4).
 * 1x 0603 2kohm resistor for signal divider (R3).
@@ -80,7 +79,7 @@ I made this project in my personal time without any sponsorship. I will continue
   <img src="doc/pico_pcb2.jpg" width="70%">
 
 ### Notes
-1. Be careful of 2 USB pins (holes) for the Pi Pico. It's a common oversight to either forget to solder them or to leave air bubbles during the process. To avoid this, solder slowly from only one side of the hole, using minimal solder wire and a generous amount of flux.  
+1. Be careful of 2 USB pins (holes) for the Pi Pico. It's a common oversight to either forget to solder them or to leave air bubbles during the process. To avoid this, solder slowly from only one side of the hole.  
    <img src="doc/usb_txrx.jpg" width="20%">
 2. There are many capacitors for decoupling. You don't need to solder them all. You can solder only some of them; just distribute them evenly.
 
@@ -92,7 +91,7 @@ I made this project in my personal time without any sponsorship. I will continue
   https://greggman.github.io/html5-gamepad-test/
 * Use a terminal tool to connect to Chord Pico's command line interface.
   https://googlechromelabs.github.io/serial-terminal/
-* Use `debug hall` to toggle hall effect sensor debug mode. When it's on, you can see the real-time sensor values. Use a small magnet to test them one by one. The value should change significantly when a magnet is close to the corresponding sensor. Use the same command again to turn off the debug mode. If you notice strange values, check the soldering of the muxiplexer and the corresponding hall effect sensor.
+* Use `debug hall` to toggle hall effect sensor debug mode. When it's on, you can see the real-time sensor values. Use a small magnet to test them one by one. The value should change significantly when a magnet is close to the corresponding sensor. If you notice strange values, check the soldering of the muxiplexer and the corresponding hall effect sensor.
 * Use `debug fader` to toggle fader sensor debug mode. When it's on, you can see real-time fader sensor status. You can use a white object (e.g. paper), waving it 5mm above the sensor to see the response.
 * Only when PCB is fully functional, you can proceed to the assembly.
 
@@ -111,10 +110,10 @@ I made this project in my personal time without any sponsorship. I will continue
 * Front Base: `Chord Pico - Front.stl`, black. Enable support and use support material to have better screw holes.
 * Panel: `Chord Pico - Panel Combo.3mf`, a multi-color system is highly recommended, make the "Panel White Layer" white, others black. Print upside down.
 * Brim (Key Stopper): `Chord Pico - Brim Insert.stl` is recommended, but if you can't use heat-set inserts, use `Chord Pico - Brim.stl` instead (see notes below). Use black filament. Print upside down.
-* 2x Fader Slider: `Slider PTFE.stl` is recommended, but if you can't find PTFE tube, use `Slider Thruhole.stl` instead (see notes below). Must be white.  
+* 2x Fader Slider: `Slider PTFE.stl` is recommended, but if you can't find proper PTFE tube, use `Slider Thruhole.stl` instead (see notes below). Must be white.  
 * 2x Fader Seal: `Slider Seal.stl`, white.
-* 4x Rail Fixers: `Chord Pico - Rail Fixer.stl`, white.
-* 2x Slider Knobs: `Fader - Knob.stl`, one in green, one in red.
+* 4x Rail Fixers: `Chord Pico - Rail Fixer.stl`, color doesn't matter.
+* 2x Fader Knobs: `Fader - Knob.stl`, one in green, one in red.
 
 #### Notes
 1. For the Brim (Key Stopper), heat-set inserts are recommended; they provide a better solution than self-tapping threads. But if you can't find them or don't have the tools, you can use self-tapping version instead, just be careful when screwing, do it slowly and don't overtighten.
@@ -122,17 +121,15 @@ I made this project in my personal time without any sponsorship. I will continue
 
 ### Assembly
 #### Other components needed
-Please note that the quantities of the screws are approximate.
-
 * 13x M3\*6mm screws for the PCB to the front and rear base.
 * 7x M3\*12mm screws for the panel to the rear base.
 * 7x M2\*10mm screws for the front base to the brim.
 * 24x M2\*7mm or M2\*6mm screws for the slider.
-* 2x M2\*16mm for the knob.
+* 2x M2\*16~18mm for the knob.
 
 * 7x M2\*3mm\*3mm (outer diameter\*height) heat-set inserts, if you use them for the brim.
 
-* 1x 2mm\*240mm steel shaft for the keys, if you can't find one, you can use 3x 2mm\*80mm or 4x 4mm\*60mm, or even 6x 2mm\*40mm instead.
+* 1x 2mm\*240mm (diameter\*length) steel shaft for the keys, if you can't find one, you can use 3x 2mm\*80mm or 4x 4mm\*60mm, or even 6x 2mm\*40mm instead.
 
 * 4x 2mm\*70mm (diameter\*length) steel shafts for the fader rails.
 
@@ -144,7 +141,7 @@ Please note that the quantities of the screws are approximate.
 
 * 4x 0.3mm\*5mm\*15mm (wire diameter\*outer diameter\*length) close-wound tension springs, for the faders.
 
-* Some 0.5mm thick self-adhesive foam tape (Poron or EVA) for damping.
+* Some 0.5~0.8mm thick self-adhesive foam tape (Poron or EVA) for damping.
 
 * Some 10mm\*2mm or 10mm\*2mm (diameter\*height) silicone self-adhesive anti-slip pads.
 
@@ -155,7 +152,7 @@ Please note that the design may change in the future, but the assembly steps wil
 1. Use the M3\*6mm screws to fix the PCB to the front and rear base part.  
    <img src="doc/assembly_1.jpg" width="70%">
 
-2. Insert magnets into the keys. Please use some adhesive to secure them.
+2. Insert the magnets into the slots at the front of the keys and secure them with adhesive (such as white RTV 704 silicone glue).
 3. Install the keys. Use the steel shaft to go through all keys, and then embed the steel shaft into the hinge sockets in the rear base.  
    <img src="doc/assembly_2.jpg" width="70%">
 
@@ -173,10 +170,10 @@ Please note that the design may change in the future, but the assembly steps wil
 
 8. Now do another test. Power on and calibrate the keys. Keys and faders should work properly. If everything is fine, proceed to the next step.
 
-9. Optional but highly recommended: use some form tape to dampen the key noise. You need to stick the foam tape to the PCB (right below the sensors) and the key stopper (brim) part. They reduce the key down and key up noise significantly.  
+9. Optional but highly recommended: use some form tape to dampen the key noise. You need to stick the foam tape to the PCB (right below the Hall sensors) and the key stopper (brim) part. They reduce the key down and key up noise significantly.  
    <img src="doc/assembly_9.jpg" width="80%">
 
-10. If you print the panel with a multi-color system, use a black marker to color the white ceiling above the sensors. This helps reduce the risk of sensor interference.  
+10. If the area of the panel above the sensors is printed with white material, use a black marker to color it. This helps reduce the risk of sensor interference.  
    <img src="doc/assembly_10.jpg" width="70%">
 
 11. Put the panel onto the base. The two auxiliary switches can interfere with the panel during installation, so move the right slider to the left and gently flex the panel to snap it into place. Then use the M3\*12mm screws to secure the panel to the base. When screwing, the panel will be pushed away from the base a little bit. You need to fully unscrew and then re-screw while pressing the panel down to make sure it's fully seated.  
@@ -184,7 +181,7 @@ Please note that the design may change in the future, but the assembly steps wil
 
 12. You may have another test. Power on and calibrate. Make sure everything still works.
 
-13. Install the knobs. The left is green and the right one is red. Secure them using M2\*16mm screws.  
+13. Install the knobs. The left is green and the right one is red. Secure them using the longest M2 screws.  
     <img src="doc/assembly_12.jpg" width="70%">
 
 14. Install the brim (key stopper) part. If you use heat-set inserts, use the proper tools to install them into the brim (key stopper) first. Use M2\*10mm screws to secure the brim to the front base.  
