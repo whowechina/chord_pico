@@ -56,7 +56,7 @@ I made this project in my personal time without any sponsorship. I will continue
 * 1x Raspberry Pi Pico or pin-to-pin compatible clones, those with type-C port are strongly recommended.  
   https://www.raspberrypi.com/products/raspberry-pi-pico
 * 1x USB Type-C socket (918-418K2023S40001 or KH-TYPE-C-16P)
-* 1x ADG706BRUZ (TQFP48) 16 to 1 analog multiplexer (U2).  
+* 1x ADG706BRUZ (28-TSSOP) 16 to 1 analog multiplexer (U2).  
   https://www.analog.com/en/products/adg706.html
 * 12x SS49E (SOT23) linear Hall effect sensors (H1 to H12).
 * 10x ITR1502SR40A/TR8 reflective photointerrupters (IR1 to IR10).  
