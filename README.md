@@ -64,7 +64,7 @@ I made this project in my personal time without any sponsorship. I will continue
 * 1x TPS7A2042PDBVR (4.2V) or LP5907MFX-4.5 (4.5V) LDO (SOT23-5), (U7).  
   https://www.ti.com/product/TPS7A20/part-details/TPS7A2042PDBVR
 * 1x LM4040 3.0V Shunt Voltage Reference, in SOT23-3 (U6). There're many models; make sure it's 3.0V and in an SOT23-3 package.
-* 1x Zener diode 3.0 or 3.3V, in SOD-123F (D1).  
+* 1x Zener diode 3.0 or 3.3V, in SOD-123F (Z1).  
 * 42x WS2812B-3528 RGB LEDs (D1 to D42). D1 to D12 and D35 to D38 are mandatory; others are for better lighting.
 * 20x to 30x 0603 0.1uF (0.1~1uF all fine) capacitors. CC1 to CC3 are mandatory; others are optional (see notes below).
 * 3x 0603 5.1kohm resistors, 2 for USB (R1, R2) and 1 for signal divider (R4).
@@ -170,7 +170,7 @@ Please note that the design may change in the future, but the assembly steps wil
 
 8. Now do another test. Power on and calibrate the keys. Keys and faders should work properly. If everything is fine, proceed to the next step.
 
-9. Optional but highly recommended: use some form tape to dampen the key noise. You need to stick the foam tape to the PCB (right below the Hall sensors) and the key stopper (brim) part. They reduce the key down and key up noise significantly.  
+9. Optional but highly recommended: use some foam tape to dampen the key noise. You need to stick the foam tape to the PCB (right below the Hall sensors) and the key stopper (brim) part. They reduce the key down and key up noise significantly.  
    <img src="doc/assembly_9.jpg" width="80%">
 
 10. If the area of the panel above the sensors is printed with white material, use a black marker to color it. This helps reduce the risk of sensor interference.  
