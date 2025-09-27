@@ -159,7 +159,7 @@ Please note that the design may change in the future, but the assembly steps wil
 4. Cut some pieces of PTFE tube and embed them into the slider. They provide smoothness while sliding the faders. If you do not use PTFE tube, please use the through-hole slider and skip this step.  
    <img src="doc/assembly_3.jpg" width="40%">
 
-5. Insert the close-wound tension springs into the slider, then use M2 screws to secure the slider seal to the slider.
+5. Insert the close-wound tension springs into the slider, then use M2 screws to secure the slider seal to the slider.  
    <img src="doc/assembly_4.jpg" width="36%"> <img src="doc/assembly_5.jpg" width="40%">
 
 6. While the steel shafts are inserted, put the slider combo into the rear base. Then hook the springs to the base and finally use M2 screws and the rail fixers to secure the slider combo. You can apply a little bit of damping grease to the steel shafts to make the slider less bouncy.  
@@ -174,7 +174,7 @@ Please note that the design may change in the future, but the assembly steps wil
    <img src="doc/assembly_9.jpg" width="80%">
 
 10. If the area of the panel above the sensors is printed with white material, use a black marker to color it. This helps reduce the risk of sensor interference.  
-   <img src="doc/assembly_10.jpg" width="70%">
+    <img src="doc/assembly_10.jpg" width="70%">
 
 11. Put the panel onto the base. The two auxiliary switches can interfere with the panel during installation, so move the right slider to the left and gently flex the panel to snap it into place. Then use the M3\*12mm screws to secure the panel to the base. When screwing, the panel will be pushed away from the base a little bit. You need to fully unscrew and then re-screw while pressing the panel down to make sure it's fully seated.  
     <img src="doc/assembly_11.jpg" width="70%">

@@ -173,7 +173,7 @@
    <img src="doc/assembly_9.jpg" width="80%">
 
 10. 如果面板在传感器的上方部位是白色材料打印的，请使用黑色马克笔将其涂黑，可以减少传感器被干扰的风险。  
-   <img src="doc/assembly_10.jpg" width="70%">
+    <img src="doc/assembly_10.jpg" width="70%">
 
 11. 将面板放置到底座上。两个辅助开关在安装过程中可能会干涉面板，因此需要将右侧推杆向左移动，并轻轻弯曲面板以将其卡入到位。然后使用 M3\*12mm 螺丝将面板固定到底座上。在拧紧时，面板可能会稍微被顶起，这时候你需要松开螺丝，然后在按下面板的同时重新拧紧，以确保其完全就位。  
     <img src="doc/assembly_11.jpg" width="70%">
@@ -192,7 +192,6 @@
 
 17. 搞定！  
     <img src="doc/assembly_14.jpg" width="80%">
-
 
 ### 固件
 * UF2 文件位于 `Production\Firmware` 文件夹中。
