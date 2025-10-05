@@ -70,7 +70,7 @@ I made this project in my personal time without any sponsorship. I will continue
 * 3x 0603 5.1kohm resistors, 2 for USB (R1, R2) and 1 for signal divider (R4).
 * 1x 0603 2kohm resistor for signal divider (R3).
 * 10x 0603 200ohm resistors as photointerrupter current limiters (R5, R7, R9, ... R23).
-* 10x 0603 33kohm resistors as photointerrupter pull-downs (R6, R8, R10, ... R24) (see notes below).
+* 10x 0603 27kohm resistors as photointerrupter pull-downs (R6, R8, R10, ... R24) (see notes below).
 * 2x ALPS SKHHLWA010 6\*6\*7mm or compatible tactile switches (SW1, SW2).  
   https://tech.alpsalpine.com/e/products/detail/SKHHLWA010/
 
@@ -125,7 +125,7 @@ I made this project in my personal time without any sponsorship. I will continue
 * 13x M3\*6mm screws for the PCB to the front and rear base.
 * 7x M3\*12mm screws for the panel to the rear base.
 * 7x M2\*10mm screws for the front base to the brim.
-* 24x M2\*7mm or M2\*6mm screws for the slider.
+* 24x M2\*7mm screws for the slider.
 * 2x M2\*16~18mm for the knob.
 
 * 7x M2\*3mm\*3mm (outer diameter\*height) heat-set inserts, if you use them for the brim.
