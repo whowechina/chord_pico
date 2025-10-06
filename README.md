@@ -70,7 +70,7 @@ I made this project in my personal time without any sponsorship. I will continue
 * 3x 0603 5.1kohm resistors, 2 for USB (R1, R2) and 1 for signal divider (R4).
 * 1x 0603 2kohm resistor for signal divider (R3).
 * 10x 0603 200ohm resistors as photointerrupter current limiters (R5, R7, R9, ... R23).
-* 10x 0603 27kohm resistors as photointerrupter pull-downs (R6, R8, R10, ... R24) (see notes below).
+* 10x 0603 22kohm resistors as photointerrupter pull-downs (R6, R8, R10, ... R24) (see notes below).
 * 2x ALPS SKHHLWA010 6\*6\*7mm or compatible tactile switches (SW1, SW2).  
   https://tech.alpsalpine.com/e/products/detail/SKHHLWA010/
 
@@ -82,7 +82,7 @@ I made this project in my personal time without any sponsorship. I will continue
 1. Be careful of 2 USB pins (holes) for the Pi Pico. It's a common oversight to either forget to solder them or to leave air bubbles during the process. To avoid this, solder slowly from only one side of the hole.  
    <img src="doc/usb_txrx.jpg" width="20%">
 2. There are many capacitors for decoupling. You don't need to solder them all. You can solder only some of them; just distribute them evenly.
-3. 33kohm resistor is for converting the photointerrupter output current to voltage. If you see a very sensitive photointerrupter, you need to use a lower value resistor, e.g. 15kohm.
+3. 22kohm resistor is for converting the photointerrupter output current to voltage. If you see a super sensitive photointerrupter, you need to use a lower value resistor, e.g. 15kohm.
 
 ### Test the PCB
 * You can test the PCB now, put the firmware in.
