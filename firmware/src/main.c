@@ -93,11 +93,6 @@ static void core1_loop()
     }
 }
 
-struct __attribute__((packed)) {
-    uint32_t buttons;
-    uint8_t joy[2];
-} hid_report, old_hid_report;
-
 static uint8_t fader_bits_to_axis(uint8_t fader)
 {
     switch (fader) {
@@ -124,6 +119,11 @@ static uint8_t fader_bits_to_axis(uint8_t fader)
     }
 }
 
+struct __attribute__((packed)) {
+    uint32_t buttons;
+    uint8_t joy[2];
+} hid_report, hid_report_sent;
+
 static void hid_update()
 {
     uint32_t buttons = button_read() ^ 0xffc; // invert the fader bits
@@ -138,10 +138,16 @@ static void hid_update()
     hid_report.joy[0] = fader_bits_to_axis((buttons >> 2) & 0x1f);
     hid_report.joy[1] = fader_bits_to_axis((buttons >> 7) & 0x1f);
 
+    static uint64_t last_report_time = 0;
     if (tud_hid_ready()) {
-        if ((memcmp(&hid_report, &old_hid_report, sizeof(hid_report)) != 0) &&
-             tud_hid_report(REPORT_ID_JOYSTICK, &hid_report, sizeof(hid_report))) {
-            old_hid_report = hid_report;
+        uint64_t now = time_us_64();
+        if ((memcmp(&hid_report, &hid_report_sent, sizeof(hid_report)) == 0) &&
+            (now - last_report_time < 10000)) {
+            return;
+        }
+        last_report_time = now;
+        if (tud_hid_report(REPORT_ID_JOYSTICK, &hid_report, sizeof(hid_report))) {
+            hid_report_sent = hid_report;
         }
     }
 }
