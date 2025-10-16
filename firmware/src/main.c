@@ -46,7 +46,7 @@ static void run_lights()
         }
     }
 
-    uint16_t fader = ~(button_read() & 0x3ff);
+    uint16_t fader = ~((button_read() >> 2) & 0x3ff);
 
     uint8_t ll = 0x20;
     uint8_t lr = 0x20;
@@ -126,7 +126,7 @@ static uint8_t fader_bits_to_axis(uint8_t fader)
 
 static void hid_update()
 {
-    uint32_t buttons = button_read() ^ 0x3ff; // invert the fader bits
+    uint32_t buttons = button_read() ^ 0xffc; // invert the fader bits
 
     hid_report.buttons = buttons << 12;
     for (int i = 0; i < 12; i++) {
@@ -135,8 +135,8 @@ static void hid_update()
         }
     }
 
-    hid_report.joy[0] = fader_bits_to_axis(buttons & 0x1f);
-    hid_report.joy[1] = fader_bits_to_axis((buttons >> 5) & 0x1f);
+    hid_report.joy[0] = fader_bits_to_axis((buttons >> 2) & 0x1f);
+    hid_report.joy[1] = fader_bits_to_axis((buttons >> 7) & 0x1f);
 
     if (tud_hid_ready()) {
         if ((memcmp(&hid_report, &old_hid_report, sizeof(hid_report)) != 0) &&
@@ -205,7 +205,7 @@ static void update_check()
     const uint8_t pins[] = BUTTON_DEF;
     // AUX 1 and AUX 2
     for (int i = 0; i < 2; i++) {
-        uint8_t gpio = pins[count_of(pins) - 1 - i];
+        uint8_t gpio = pins[i];
         gpio_init(gpio);
         gpio_set_function(gpio, GPIO_FUNC_SIO);
         gpio_set_dir(gpio, GPIO_IN);
