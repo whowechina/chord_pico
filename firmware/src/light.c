@@ -120,22 +120,38 @@ void light_update()
     drive_led();
 }
 
-static bool bypass_check(bool hid)
+static bool bypass_key_light(bool hid)
 {
-    static uint64_t hid_timeout = 0;
+    static uint64_t key_timeout = 0;
     uint64_t now = time_us_64();
 
     if (hid) {
-        hid_timeout = now + HID_TIMEOUT;
+        key_timeout = now + HID_TIMEOUT;
         return false;
     }
 
-    return now < hid_timeout;
+    return now < key_timeout;
+}
+
+static bool bypass_fader_light(bool light_on, bool hid)
+{
+    static uint64_t fader_timeout = 0;
+    uint64_t now = time_us_64();
+
+    if (hid) {
+        if (light_on) {
+            fader_timeout = now + HID_TIMEOUT;
+            return false;
+        }
+        return now >= fader_timeout;
+    }
+
+    return now < fader_timeout;
 }
 
 void light_set_key(uint8_t index, uint32_t color, bool hid)
 {
-    if (bypass_check(hid)) {
+    if (bypass_key_light(hid)) {
         return;
     }
 
@@ -147,7 +163,7 @@ void light_set_key(uint8_t index, uint32_t color, bool hid)
 
 void light_set_fader(uint8_t index, uint32_t color, bool hid)
 {
-    if (bypass_check(hid)) {
+    if (bypass_fader_light(color != 0, hid)) {
         return;
     }
 
