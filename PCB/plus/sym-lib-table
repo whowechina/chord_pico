@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "chord_pico")(type "KiCad")(uri "${KIPRJMOD}/chord_pico.kicad_sym")(options "")(descr ""))
+)

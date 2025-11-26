@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="FaderLR.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.53858859"
+     inkscape:cx="435.39726"
+     inkscape:cy="522.66239"
+     inkscape:window-width="1920"
+     inkscape:window-height="1010"
+     inkscape:window-x="-6"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <rect
+       x="61.271257"
+       y="51.987733"
+       width="434.46891"
+       height="79.838306"
+       id="rect236" />
+  </defs>
+  <g
+     inkscape:label="图层 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,-20.141378,-11.790075)"
+       id="text234"
+       style="font-size:64px;font-family:'Axion RND';-inkscape-font-specification:'Axion RND';text-align:center;letter-spacing:5px;white-space:pre;shape-inside:url(#rect236);fill:#ff0000;stroke-linecap:square;stroke-miterlimit:10"><tspan
+         x="88.68988"
+         y="116.30828"
+         id="tspan422"><tspan
+           style="font-weight:900;font-family:'FOT-KafuTechno Std';-inkscape-font-specification:'FOT-KafuTechno Std Heavy'"
+           id="tspan420">FADER-L</tspan></tspan></text>
+  </g>
+</svg>
