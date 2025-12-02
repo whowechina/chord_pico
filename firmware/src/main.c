@@ -163,7 +163,7 @@ static void debug_display()
 
     if (chord_runtime.debug.fader) {
         printf("FADER:");
-        uint16_t fader = button_read() & 0x3ff;
+        uint16_t fader = (button_read() >> 2) & 0x3ff;
 
         for (int i = 0; i < 10; i++) {
             bool left = i < 5;
