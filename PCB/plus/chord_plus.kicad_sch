@@ -3907,6 +3907,12 @@
 		)
 	)
 	(junction
+		(at 158.115 40.64)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "01369ad3-5022-467b-af7a-8023d62deca5")
+	)
+	(junction
 		(at 372.11 239.395)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4037,6 +4043,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "1b1e6661-2dde-4c34-9ccf-7220b9761aa8")
+	)
+	(junction
+		(at 158.115 59.055)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1c700adc-51c1-4063-88de-b149a9decdd0")
 	)
 	(junction
 		(at 168.91 174.625)
@@ -4181,12 +4193,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "2f2f1f2f-3ae7-43e0-800d-fa3c81709579")
-	)
-	(junction
-		(at 143.51 59.055)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "31489cc4-6a33-4765-b729-f198073c847f")
 	)
 	(junction
 		(at 295.91 208.915)
@@ -4711,6 +4717,12 @@
 		(uuid "89b4a26c-0556-4a34-b069-36309d94df17")
 	)
 	(junction
+		(at 134.62 40.64)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "89b77c29-aa3f-4441-b057-3dac60d7d29e")
+	)
+	(junction
 		(at 69.85 170.18)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4745,12 +4757,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8e68b610-218d-4bc5-94eb-ff3f6839dfc7")
-	)
-	(junction
-		(at 158.115 59.055)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8ed830b8-1a4a-4dff-9673-8dc1b52a88d6")
 	)
 	(junction
 		(at 336.55 150.495)
@@ -5531,16 +5537,6 @@
 	(no_connect
 		(at 76.2 181.61)
 		(uuid "ec459430-ffef-494a-b461-482f23a4ffb8")
-	)
-	(wire
-		(pts
-			(xy 143.51 59.055) (xy 158.115 59.055)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0000705c-4532-470d-85c6-216322f9231b")
 	)
 	(wire
 		(pts
@@ -7114,7 +7110,7 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 59.055) (xy 143.51 53.975)
+			(xy 143.51 53.975) (xy 143.51 80.01)
 		)
 		(stroke
 			(width 0)
@@ -7491,6 +7487,16 @@
 			(type default)
 		)
 		(uuid "62049655-44c1-4767-b8d6-0fc21e7ce3a0")
+	)
+	(wire
+		(pts
+			(xy 158.115 40.64) (xy 158.115 59.055)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "62ba6efb-79d4-44fa-9ced-7c56f2703cf3")
 	)
 	(wire
 		(pts
@@ -9494,16 +9500,6 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 80.01) (xy 143.51 59.055)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c0ad6374-63c2-498f-a351-b673b893ef9c")
-	)
-	(wire
-		(pts
 			(xy 285.75 60.325) (xy 285.75 59.055)
 		)
 		(stroke
@@ -10221,6 +10217,16 @@
 			(type default)
 		)
 		(uuid "e3ccaeb6-6a9d-4327-95af-20375aa45784")
+	)
+	(wire
+		(pts
+			(xy 134.62 40.64) (xy 158.115 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e463a934-53b5-4de8-8413-24893ec038b9")
 	)
 	(wire
 		(pts
@@ -15285,7 +15291,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "VLED"
 			(at 248.285 220.98 0)
 			(effects
 				(font
@@ -15350,7 +15356,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "VLED"
 			(at 143.51 50.165 0)
 			(effects
 				(font
@@ -16638,7 +16644,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "VLED"
 			(at 38.735 151.765 0)
 			(effects
 				(font
@@ -18303,7 +18309,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
+		(property "Value" "VLED"
 			(at 23.495 193.04 0)
 			(effects
 				(font
@@ -19579,6 +19585,71 @@
 			(project "chord_pico"
 				(path "/2e3f5573-c264-4a8b-a2f0-0e6473d39aad"
 					(reference "IR9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 158.115 40.64 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "cef41152-dd9b-404d-a2f8-1080c7133276")
+		(property "Reference" "#PWR04"
+			(at 158.115 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VBUS"
+			(at 158.115 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 158.115 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 158.115 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 158.115 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "dfd7fbfd-47b0-4cf2-931f-346e9498a399")
+		)
+		(instances
+			(project "chord_plus"
+				(path "/2e3f5573-c264-4a8b-a2f0-0e6473d39aad"
+					(reference "#PWR04")
 					(unit 1)
 				)
 			)
