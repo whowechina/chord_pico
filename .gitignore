@@ -1,2 +1,4 @@
 PCB/**/*backups
 *.bak
+Production/PCB/*/*
+
