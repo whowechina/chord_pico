@@ -13,7 +13,7 @@ Features:
 * Fader sensors are arcade accurate.
 * All open source.
 
-Thanks to the many generous individuals and companies who made their tools or materials free or open source (KiCad, OnShape, InkScape, Raspberry things).
+Thanks to the many generous individuals and companies who made their tools or materials free or open source (KiCad, OnShape, InkScape, Raspberry things, JLCPCB and Jiepei).
 
 Special thanks to community projects and developers. And also these projects:
 * RP_Silicon_KiCad: https://github.com/HeadBoffin/RP_Silicon_KiCad
@@ -61,7 +61,7 @@ I made this project in my personal time without any sponsorship. I will continue
 * 1x ADG706BRUZ (28-TSSOP) 16 to 1 analog multiplexer (U2).  
   https://www.analog.com/en/products/adg706.html
 * 12x SS49E (SOT23) linear Hall effect sensors (H1 to H12).
-* 10x ITR1502SR40A/TR8 reflective photointerrupters (IR1 to IR10).  
+* 10x ITR1502SR40A/TR8 reflective photosensors (IR1 to IR10).  
   https://www.lcsc.com/product-detail/C183793.html
 * 1x TPS7A2042PDBVR (4.2V) or LP5907MFX-4.5 (4.5V) LDO (SOT23-5), (U7).  
   https://www.ti.com/product/TPS7A20/part-details/TPS7A2042PDBVR
@@ -71,12 +71,12 @@ I made this project in my personal time without any sponsorship. I will continue
 * 20x to 30x 0603 0.1uF (0.1~1uF all fine) capacitors. CC1 to CC3 are mandatory; others are optional (see notes below).
 * 3x 0603 5.1kohm resistors, 2 for USB (R1, R2) and 1 for signal divider (R4).
 * 1x 0603 2kohm resistor for signal divider (R3).
-* 10x 0603 200ohm resistors as photointerrupter current limiters (R5, R7, R9, ... R23).
-* 10x 0603 22kohm resistors as photointerrupter pull-downs (R6, R8, R10, ... R24) (see notes below).
+* 10x 0603 200ohm resistors as photosensor current limiters (R5, R7, R9, ... R23).
+* 10x 0603 22kohm resistors as photosensor pull-downs (R6, R8, R10, ... R24) (see notes below).
 * 2x ALPS SKHHLWA010 6\*6\*7mm or compatible tactile switches (SW1, SW2).  
   https://tech.alpsalpine.com/e/products/detail/SKHHLWA010/
 
-* This is what the board looks like after soldering.  
+* This is what the Chord Pico board looks like after soldering. Chord Pico+ looks a little different, but the components are the same.  
   <img src="doc/pico_pcb1.jpg" width="70%">  
   <img src="doc/pico_pcb2.jpg" width="70%">
 
@@ -84,7 +84,7 @@ I made this project in my personal time without any sponsorship. I will continue
 1. Be careful of 2 USB pins (holes) for the Pi Pico. It's a common oversight to either forget to solder them or to leave air bubbles during the process. To avoid this, solder slowly from only one side of the hole.  
    <img src="doc/usb_txrx.jpg" width="20%">
 2. There are many capacitors for decoupling. You don't need to solder them all. You can solder only some of them; just distribute them evenly.
-3. 22kohm resistor is for converting the photointerrupter output current to voltage. If you see a super sensitive photointerrupter, you need to use a lower value resistor, e.g. 15kohm; otherwise, if it's not sensitive enough, you can use a higher value resistor, e.g. 27kohm or 33kohm.
+3. If you find a photosensor oversensitive, you need to use a lower resistance, e.g. 15kohm; otherwise, if it's not sensitive enough, you can use a higher resistance, e.g. 27kohm or 33kohm. Also you can measure the idle voltage across the pull-down resistor (R6, R8, ...) when nothing is above the photosensor. Higher resistance gives higher idle voltage, 0.1v to 0.2v is a good range.
 
 ### Test the PCB
 * You can test the PCB now, put the firmware in.
@@ -94,7 +94,7 @@ I made this project in my personal time without any sponsorship. I will continue
   https://greggman.github.io/html5-gamepad-test/
 * Use a terminal tool to connect to Chord Pico's command line interface.
   https://googlechromelabs.github.io/serial-terminal/
-* Use `debug hall` to toggle hall effect sensor debug mode. When it's on, you can see the real-time sensor values. Use a small magnet to test them one by one. The value should change significantly when a magnet is close to the corresponding sensor. If you notice strange values, check the soldering of the muxiplexer and the corresponding hall effect sensor.
+* Use `debug hall` to toggle hall effect sensor debug mode. When it's on, you can see the real-time sensor values. Use a small magnet to test them one by one. The value should change significantly when a magnet is close to the corresponding sensor. If you notice strange values, check the soldering of the multiplexer and the corresponding hall effect sensor.
 * Use `debug fader` to toggle fader sensor debug mode. When it's on, you can see real-time fader sensor status. You can use a white object (e.g. paper), waving it 5mm above the sensor to see the response.
 * Only when PCB is fully functional, you can proceed to the assembly.
 
@@ -114,15 +114,15 @@ I made this project in my personal time without any sponsorship. I will continue
 * Front Base: `Chord Pico - Front.stl`, black. Enable support and use support material to have better screw holes. Note that for Chord Pico+ version, the front base is split into two parts: `Chord Pico+ - Left` and `Chord Pico+ - Right`.
 * Panel: `Chord Pico - Panel Combo.3mf`, a multi-color system is highly recommended, make the "Panel White Layer" white, others black. Print upside down.
 * Brim (Key Stopper): `Chord Pico - Brim Insert.stl` is recommended, but if you can't use heat-set inserts, use `Chord Pico - Brim.stl` instead (see notes below). Use black filament. Print upside down. Note that for Chord Pico+ version, the brim is split into two parts: `Chord Pico+ - BrimLeft` and `Chord Pico+ - BrimRight`, both use heat-set inserts.
-* Fader parts for Chord Pico version only:
+* Fader parts for Chord Pico only:
   * 2x Fader Slider: `Slider PTFE.stl` is recommended, but if you can't find proper PTFE tube, use `Slider Thruhole.stl` instead (see notes below). Must be white.  
   * 2x Fader Seal: `Slider Seal.stl`, white.
   * 4x Rail Fixers: `Chord Pico - Rail Fixer.stl`, color doesn't matter.
   * 2x Fader Knobs: `Fader - Knob.stl`, one in green, one in red.
-* Fader parts for Chord Pico+ version only:
+* Fader parts for Chord Pico+ only:
   * 2x Fader seats: `Fader+ - Seat`, black, embed heat-set inserts after printing.
   * 2x Fader curtains: `Fader+ - Curtain`, black.
-  * 2x Reflectors: `Fader+ - Reflector`, white.
+  * 2x Reflectors: `Fader+ - Reflector`, **MUST** be white.
   * 2x Fader Knobs: `Fader+ - Knob+.stl`, one in green, one in red.
 
 #### Notes
@@ -135,23 +135,21 @@ I made this project in my personal time without any sponsorship. I will continue
 * 7x M3\*12mm screws for the panel to the rear base.
 * 7x M2\*10mm screws for the front base to the brim. For Chord Pico+ version, 9x are needed.
 
-* Fader components for Chord Pico version only:
+* Fader components for Chord Pico only:
   * 4x 2mm\*70mm (diameter\*length) steel shafts for the fader rails.
   * Some 2.2mm\*4mm or 2.3mm\*4mm (inner diameter\*outer diameter) PTFE tubes.
   * 4x 0.3mm\*5mm\*15mm (wire diameter\*outer diameter\*length) close-wound tension springs, for the faders.
-  * 4x M2\*16~18mm screws for securing the rail fixers to the base.
-  * 8x M2\*7mm screws for securing the slider seal to the fader slider.
   * 24x M2\*7mm screws for the slider.
   * 2x M2\*16~18mm screws for the fader knobs.
 
-* Fader components for Chord Pico+ version only:
+* Fader components for Chord Pico+ only:
   * 2x MGN7 100mm linear rails.
   * 2x MGN7C sliders.
   * 4x 0.4mm\*5mm\*30mm (wire diameter\*outer diameter\*length) close-wound tension springs, for the faders.
-  * 14x M3\*8mm screws for securing the rails to the base, quantity can be reduced as needed.
-  * 8x M2 washers, for the screws that secure the tension springs.
+  * 8x M2\*8mm screws for securing the rails to the base.
+  * 8x M2 washers, for the screws that secure the tension springs. Metal or plastic both work.
   * 4x M2\*4mm screws for securing the tension springs on the slider side.
-  * 4x M2\*8mm screws for securing the tension springs on the spring posts at both ends of the rails.
+  * 4x M2\*6mm screws for securing the tension springs on the spring posts at both ends of the rails.
   * 8x M2\*8mm screws for securing the curtains and slider seat to the slider.
   * 2x M2.5\*18mm screws for securing the fader knobs to the slider seat.
   
@@ -174,7 +172,7 @@ Please note that the design may change in the future, but the assembly steps wil
 
 1. Please install heat-set inserts into the parts that require them.
 
-2. Use the M3\*6mm screws to fix the PCB to the front and rear base part. Note that for Chord Pico+ version, the base is assembled from three parts.  
+2. Use the M3\*6mm screws to fix the PCB to the front and rear base part. Note that for Chord Pico+ version, the base is assembled from three parts and needs more screws.  
    <img src="doc/assembly_1.jpg" width="70%">
 
 3. Insert the magnets into the slots at the front of the keys and secure them with adhesive (such as white RTV 704 silicone glue).
@@ -182,46 +180,55 @@ Please note that the design may change in the future, but the assembly steps wil
 4. Install the keys. Use the steel shaft to go through all keys, and then embed the steel shaft into the hinge sockets in the rear base.  
    <img src="doc/assembly_2.jpg" width="70%">
 
-5. Fader assembly for Chord Pico version only:
+5. Fader assembly for Chord Pico only:
    1. Cut some pieces of PTFE tube and embed them into the slider. They provide smoothness while sliding the faders. If you do not use PTFE tube, please use the through-hole slider and skip this step.  
-      <img src="doc/assembly_3.jpg" width="40%">
+      <img src="doc/assembly_3a.jpg" width="40%">
 
    2. Insert the close-wound tension springs into the slider, then use M2 screws to secure the slider seal to the slider.  
-      <img src="doc/assembly_4.jpg" width="36%"> <img src="doc/assembly_5.jpg" width="40%">
+      <img src="doc/assembly_3b.jpg" width="36%"> <img src="doc/assembly_3c.jpg" width="40%">
 
    3. While the steel shafts are inserted, put the slider combo into the rear base. Then hook the springs to the base and finally use M2 screws and the rail fixers to secure the slider combo. You can apply a little bit of damping grease to the steel shafts to make the slider less bouncy.  
-      <img src="doc/assembly_6.jpg" width="30%"> <img src="doc/assembly_7.jpg" width="50%">
-6. Fader assembly for Chord Pico+ version only:
-   1. WIP
-   2. WIP
+      <img src="doc/assembly_3d.jpg" width="30%"> <img src="doc/assembly_3e.jpg" width="50%">
+6. Fader assembly for Chord Pico+ only:
+   1. Secure the two linear rails to the rear base using M2 screws.  
+      <img src="doc/assembly_4a.jpg" width="70%">
+   2. Insert the reflectors into the slider seats, paying attention to their orientation.  
+      <img src="doc/assembly_4b.jpg" width="50%">
+   3. Install the springs onto the slider seats using M2 screws and washers. Note that the screws for the fixed side and the moving side are different, and don’t overtighten them. The seats are floating on the sliders for now.  
+      <img src="doc/assembly_4c.jpg" width="70%">
+   4. Place the curtains onto the sliders, push them firmly against the sliders, then use M2 screws to secure them.  
+      <img src="doc/assembly_4d.jpg" width="70%">
 
-7. Install the springs for the keys.  
-   <img src="doc/assembly_8.jpg" width="70%">
+7. Install the springs for the keys. Chord Pico+ has two springs per key.  
+   <img src="doc/assembly_5.jpg" width="70%">
 
 8. Now do another test. Power on and calibrate the keys. Keys and faders should work properly. If everything is fine, proceed to the next step.
 
-9. Optional but highly recommended: use some form tape to dampen the key noise. You need to stick the foam tape to the PCB (right below the Hall sensors) and the key stopper (brim) part. They reduce the key down and key up noise significantly.  
-   <img src="doc/assembly_9.jpg" width="80%">
+9. Optional but highly recommended: use some foam tape to dampen the key noise. You need to stick the foam tape to the PCB (right below the Hall sensors) and the key stopper (brim) part. They reduce the key down and key up noise significantly.  
+   <img src="doc/assembly_6.jpg" width="80%">
 
-10.  If the area of the panel above the sensors is printed with white material, use a black marker to color it. This helps reduce the risk of sensor interference.  
-    <img src="doc/assembly_10.jpg" width="70%">
+10. Chord Pico only. If the area of the panel above the sensors is printed with white material, use a black marker to color it. This helps reduce the risk of sensor interference.  
+    <img src="doc/assembly_7.jpg" width="70%">
 
-11.  Put the panel onto the base. The two auxiliary switches can interfere with the panel during installation, so move the right slider to the left and gently flex the panel to snap it into place. Then use the M3\*12mm screws to secure the panel to the base. When screwing, the panel will be pushed away from the base a little bit. You need to fully unscrew and then re-screw while pressing the panel down to make sure it's fully seated.  
+11. Chord Pico+ only. Apply thin PTFE/UHMW tape to the inner top surface of the panel so the slider curtains don’t squeak when sliding.  
+    <img src="doc/assembly_8.jpg" width="70%">
+
+12. Put the panel onto the base. The two auxiliary switches can interfere with the panel during installation, so move the right slider to the left and gently flex the panel to snap it into place. Then use the M3\*12mm screws to secure the panel to the base. When screwing, the panel will be pushed away from the base a little bit. You need to fully unscrew and then re-screw while pressing the panel down to make sure it's fully seated.  
     <img src="doc/assembly_11.jpg" width="70%">
 
-12. You may have another test. Power on and calibrate. Make sure everything still works.
+13. You may have another test. Power on and calibrate. Make sure everything still works.
 
-13. Install the knobs. The left is green and the right one is red. Secure them using the longest M2 screws.  
+14. Install the knobs. The left is green and the right one is red. Secure them using the long screws (M2 for Chord Pico, M2.5 for Chord Pico+).
     <img src="doc/assembly_12.jpg" width="70%">
 
-14. Install the brim (key stopper) part. If you use heat-set inserts, use the proper tools to install them into the brim (key stopper) first. Use M2\*10mm screws to secure the brim to the front base.  
+15. Install the brim (key stopper) part. If you use heat-set inserts, use the proper tools to install them into the brim (key stopper) first. Use M2\*10mm screws to secure the brim to the front base.  
     <img src="doc/assembly_13.jpg" width="70%">
 
-15. Attach the anti-slip pads to the bottom of the rear base.
+16. Attach the anti-slip pads to the bottom of the controller.
 
-16. Power on and recalibrate the keys.
+17. Power on and recalibrate the keys.
 
-17. Enjoy!  
+18. Enjoy!  
     <img src="doc/assembly_14.jpg" width="80%">
 
 ### Firmware
