@@ -150,11 +150,12 @@ I made this project in my personal time without any sponsorship. I will continue
   * 8x M2 washers, for the screws that secure the tension springs. Metal or plastic both work.
   * 4x M2\*4mm screws for securing the tension springs on the slider side.
   * 4x M2\*6mm screws for securing the tension springs on the spring posts at both ends of the rails.
-  * 8x M2\*8mm screws for securing the curtains and slider seat to the slider.
-  * 2x M2.5\*18mm screws for securing the fader knobs to the slider seat.
+  * 8x M2\*8mm screws for securing the curtains and fader seats to the sliders.
+  * 2x M2.5\*18mm screws for securing the fader knobs to the fader seats.
   
 * 7x M2\*3mm\*3mm (outer diameter\*height) heat-set inserts for Chord Pico brim. For Chord Pico+, 9x are needed.
 * Only for Chord Pico+: 9x M3\*4mm\*4mm (outer diameter\*height) heat-set inserts for the panel.
+* Only for Chord Pico+: 2x M2.5\*3.5mm\*6mm (outer diameter\*height) heat-set inserts for the fader seats.
 
 * 1x 2mm diameter steel shaft. 240mm length for Chord Pico, 340mm length for Chord Pico+.
 
@@ -192,9 +193,9 @@ Please note that the design may change in the future, but the assembly steps wil
 6. Fader assembly for Chord Pico+ only:
    1. Secure the two linear rails to the rear base using M2 screws.  
       <img src="doc/assembly_4a.jpg" width="70%">
-   2. Insert the reflectors into the slider seats, paying attention to their orientation.  
+   2. Insert the reflectors into the fader seats, paying attention to their orientation.  
       <img src="doc/assembly_4b.jpg" width="50%">
-   3. Install the springs onto the slider seats using M2 screws and washers. Note that the screws for the fixed side and the moving side are different, and don’t overtighten them. The seats are floating on the sliders for now.  
+   3. Install the springs onto the fader seats using M2 screws and washers. Note that the screws for the fixed side and the moving side are different, and don’t overtighten them. The seats are floating on the sliders for now.  
       <img src="doc/assembly_4c.jpg" width="70%">
    4. Place the curtains onto the sliders, push them firmly against the sliders, then use M2 screws to secure them.  
       <img src="doc/assembly_4d.jpg" width="70%">
