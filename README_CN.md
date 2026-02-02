@@ -1,10 +1,13 @@
 # Chord Pico - Polaris Chord 风格的迷你控制器
 [Click here for the English version of this guide.](README.md)
 
-<img src="doc/main.jpg" width="70%">
+<img src="doc/main.jpg" width="80%">
+<img src="doc/main2.jpg" width="80%">
+
 
 特性：
 * 全球第一个 Polaris Chord 控制器。
+* 有两个版本: Chord Pico 适合 15.6 到 21 英寸显示器，Chord Pico+ 适合 21.5 英寸及以上显示器。
 * 几乎所有部件均为 3D 打印。
 * 霍尔效应传感器按键，可自定义触发行程。
 * RGB 按键灯光，支持 HID 灯光。
@@ -51,8 +54,7 @@
 
 ### 如何制作
 #### PCB 和元件
-* 前往 JLCPCB 或你喜欢的任何 PCB 制造商，使用 gerber 压缩文件下单（最新的 `Production\PCB\chord_pico_xxx.zip`）。选择常规 FR-4 板材，黑色，**1.6mm** 厚度。
-
+* 前往 JLCPCB 或你喜欢的任何 PCB 制造商，使用 gerber 压缩文件下单（最新的 `Production\PCB\chord_pico_xxx.zip` 用于 Chord Pico 或者 `Production\PCB\chord_plus_xxx.zip` 用于 Chord Pico+）。选择常规 FR-4 板材，黑色，**1.6mm** 厚度。
 * 1x Raspberry Pi Pico 或针脚兼容的克隆板，推荐带 Type-C 接口的版本。  
   https://www.raspberrypi.com/products/raspberry-pi-pico
 * 1x USB Type-C 插座（型号：918-418K2023S40001 或 KH-TYPE-C-16P）。
@@ -82,7 +84,7 @@
 1. 请特别注意用于 USB 的两个引脚（孔），很容易忘记焊接，或者焊接时留有气泡。为避免这种情况，请从孔的一侧慢慢焊接。  
    <img src="doc/usb_txrx.jpg" width="20%">
 2. 去耦电容的数量很多，你不需要全部焊接，可以选择焊接一部分，但尽量均匀分布。
-3. 22kohm 电阻用于将光电开关的输出电流转换为电压。如果你发现光电开关过于灵敏，你就需要使用更低阻值的电阻，例如 15kohm。
+3. 22kohm 电阻用于将光电开关的输出电流转换为电压。如果发现光电开关过于灵敏，请使用更低阻值的电阻，例如 15kohm；反之，如果不够灵敏，可以使用更高阻值的电阻，例如 27kohm 或 33kohm。
 
 ### 测试 PCB
 * 现在你可以测试 PCB 了，先将固件烧录进去。
@@ -106,15 +108,22 @@
 
 #### 部件
 * 所有文件都在 `Production\3DPrint` 文件夹中。
+* 制作 Chord Pico+ 请使用带 `+` 的文件，包括 `Chord Pico+`, `Key+` 和 `Fader+`.
 * 按键：`Key Combo - All Keys`，无色透明。
 * 后底座：`Chord Pico - Rear.stl`，黑色。启用支撑并使用支撑材料以获得更好的螺丝孔表面。
-* 前底座：`Chord Pico - Front.stl`，黑色。启用支撑并使用支撑材料以获得更好的螺丝孔表面。
+* 前底座：`Chord Pico - Front.stl`，黑色。启用支撑并使用支撑材料以获得更好的螺丝孔表面。如果是 Chord Pico+，则分为 `Chord Pico+ - Left` 和 `Chord Pico+ - Right` 两个部分打印。
 * 面板：`Chord Pico - Panel Combo.3mf`，强烈推荐使用多色系统，其中 “Panel White Layer" 子部件使用白色材料，其他子部件设为黑色。倒置打印。
-* 按键挡板：推荐用 `Chord Pico - Brim Insert.stl`，但如果你无法使用热熔螺母，可以改用 `Chord Pico - Brim.stl`（见下文说明）。使用黑色耗材。倒置打印。
-* 2x 推杆滑块：推荐用 `Slider PTFE.stl`，但如果你找不到合适 PTFE 管，可以改用 `Slider Thruhole.stl`（见下文说明）。必须使用白色耗材。
-* 2x 滑块盖：`Slider Seal.stl`，白色。
-* 4x 导轨固定器: `Chord Pico - Rail Fixer.stl`, 颜色不重要。
-* 2x 推杆把手: `Fader - Knob.stl`, 一个绿色，一个红色。
+* 按键挡板：推荐用 `Chord Pico - Brim Insert.stl`，但如果你无法使用热熔螺母，可以改用 `Chord Pico - Brim.stl`（见下文说明）。使用黑色耗材。倒置打印。如果是 Chord Pico+，则分为 `Chord Pico+ - BrimLeft` 和 `Chord Pico+ - BrimRight` 两个部分打印，且只有热熔螺母版本。
+* Chord Pico 推杆部分，仅针对 Chord Pico 版本：
+  * 2x 推杆滑块：推荐用 `Slider PTFE.stl`，但如果你找不到合适 PTFE 管，可以改用 `Slider Thruhole.stl`（见下文说明）。必须使用白色耗材。
+  * 2x 滑块盖：`Slider Seal.stl`，白色。
+  * 4x 导轨固定器: `Chord Pico - Rail Fixer.stl`, 颜色不重要。
+  * 2x 推杆把手: `Fader - Knob.stl`, 一个绿色，一个红色。
+* Chord Pico+ 推杆部分，仅针对 Chord Pico+ 版本：
+  * 2x 滑块底座：`Fader+ - Seat`，黑色，打印后请嵌入热熔螺母。
+  * 2x 遮板：`Fader+ - Curtain`，黑色。
+  * 2x 反射片：`Fader+ - Reflector`，白色。
+  * 2x 推杆把手: `Fader+ - Knob+.stl`, 一个绿色，一个红色。
 
 #### Notes
 1. 对于按键挡板，推荐使用热熔螺母，它比自攻螺纹好用。但如果你买不到或者没有合适工具，请改用自攻版本打印件，注意要慢慢拧，小心别拧过头。
@@ -122,64 +131,87 @@
 
 ### 组装
 #### 所需其他组件
-* 13x M3\*6mm 螺丝用于将 PCB 和前后底座固定在一起。
+* 13x M3\*6mm 螺丝用于将 PCB 和前后底座固定在一起，Chord Pico+ 版本需要 18x。
 * 7x M3\*12mm 螺丝用于将面板固定到后底座。
-* 7x M2\*10mm 螺丝用于将按键挡板固定到前底座。
-* 24x M2\*7mm 螺丝用于滑块。
-* 2x M2\*16~18mm 螺丝用于推杆把手。
+* 7x M2\*10mm 螺丝用于将按键挡板固定到前底座，Chord Pico+ 版本需要 9x。
 
-* 7x M2\*3mm\*3mm (外径\*高度) 热熔螺母（如果你选这个方案）。
+* 仅用于 Chord Pico 版本的推杆组件：
+  * 4x 2mm\*70mm (直径\*长度) 钢轴用作推杆导轨。
+  * 一些 2.2mm\*4mm 或 2.3mm\*4mm (内径\*外径) PTFE 管。
+  * 4x 0.3mm\*5mm\*15mm (线径\*外径\*长度) 紧密卷绕的拉簧，用于推杆。
+  * 4x M2\*16~18mm 螺丝用于将导轨固定器固定到底座上。
+  * 8x M2\*7mm 螺丝用于将滑块盖固定到推杆滑块上。
+  * 24x M2\*7mm 螺丝用于滑块。
+  * 2x M2\*16~18mm 螺丝用于推杆把手。
 
-* 1x 2mm\*240mm 钢轴用于按键，如果找不到，可以使用 3x 2mm\*80mm 或 4x 4mm\*60mm，甚至 6x 2mm\*40mm 来组合。
+* 仅用于 Chord Pico+ 版本的推杆组件：
+  * 2x MGN7 100mm 导轨。
+  * 2x MGN7C 滑块。
+  * 4x 0.4mm\*5mm\*30mm (线径\*外径\*长度) 紧密卷绕的拉簧，用于推杆。
+  * 14x M3\*8mm 螺丝用于将导轨固定到底板上，可酌情减少数量。
+  * 8x M2 垫片，用在固定拉簧的螺丝上。
+  * 4x M2\*4mm 螺丝用于在滑块侧固定拉簧。
+  * 4x M2\*8mm 螺丝用于在导轨两侧的拉簧柱固定拉簧。
+  * 8x M2\*8mm 螺丝用于固定遮板、滑块底座到滑块上。
+  * 2x M2.5\*18mm 螺丝用于固定推杆把手到滑块底座上。
+  
+* 7x M2\*3mm\*3mm (外径\*高度) 热熔螺母（Chord Pico 热熔螺母方案）；对于 Chord Pico+，需要 9x。
+* 仅用于 Chord Pico+ 面板的 9x M3\*4mm\*4mm (外径\*高度) 热熔螺母，。
 
-* 4x 2mm\*70mm (直径\*长度) 钢轴用作推杆导轨。
+* 1x 2mm 直径的钢轴，Chord Pico 需要 240mm 长度，Chord Pico+ 需要 340mm 长度。
 
-* 12x 0.4\*5\*10\*6N (0.4mm 线径, 5mm 外径, 10mm 自由长度, 6 圈) 弹簧。
+* 12x 0.4\*5\*10\*6N (0.4mm 线径, 5mm 外径, 10mm 自由长度, 6 圈) 弹簧。对于 Chord Pico+，则需要 24x。
 * 12x 3mm\*2mm (直径\*高度) 轴向磁化的圆柱形磁铁。
-* 一些 2.2mm\*4mm 或 2.3mm\*4mm (内径\*外径) PTFE 管。
 * 一些白色硅胶粘合剂，例如 K-704 硅胶工业粘合剂。
 * 一些低粘度的阻尼润滑脂，例如润赛的 Type-2。
 
-* 4x 0.3mm\*5mm\*15mm (线径\*外径\*长度) 紧密卷绕的拉簧，用于推杆。
-
 * 一些 0.5~0.8mm 厚的自粘泡棉胶带 (Poron 或 EVA) 用于减震。
 
-* 一些 10mm\*2mm 或 10mm\*2mm (直径\*高度) 硅胶自粘防滑垫。
+* 一些 10mm\*2mm 或 10mm\*2mm (直径\*高度) 黑色硅胶自粘防滑垫。
 
 #### 步骤
 请注意，设计未来可能会有所更改，但组装步骤应该会基本不变。所以请忽略某些细节上的小差异。
 
-1. 使用 M3\*6mm 螺丝将 PCB 固定到前后底座上。  
+1. 请在所有需要热熔螺母的部件上安装好热熔螺母。
+
+2. 使用 M3\*6mm 螺丝将 PCB 固定到前后底座上。注意 Chord Pico+ 版本的话，底座是三部分组合起来的。  
    <img src="doc/assembly_1.jpg" width="70%">
 
-2. 将磁铁嵌入到按键前部的槽位里，并使用一些粘合剂（比如白色 704 硅橡胶）将其固定。
-3. 安装按键。使用钢轴穿过所有按键，然后将钢轴嵌入后底座的铰链槽中。  
+3. 将磁铁嵌入到按键前部的槽位里，并使用一些粘合剂（比如白色 704 硅橡胶）将其固定。
+
+4. 安装按键。使用钢轴穿过所有按键，然后将钢轴嵌入后底座的铰链槽中。  
    <img src="doc/assembly_2.jpg" width="70%">
 
-4. 裁切一些 PTFE 管并将其嵌入到滑块里。它们在滑动推杆时提供顺滑感。如果不使用 PTFE 管，请使用通孔滑块并跳过此步骤。  
-   <img src="doc/assembly_3.jpg" width="40%">
 
-5. 将拉簧嵌入到推杆滑块里，然后使用 M2 螺丝将滑块盖固定到推杆滑块上。  
-   <img src="doc/assembly_4.jpg" width="36%"> <img src="doc/assembly_5.jpg" width="40%">
+5. Chord Pico 版本的推杆组装：
+   1. 裁切一些 PTFE 管并将其嵌入到滑块里。它们在滑动推杆时提供顺滑感。如果不使用 PTFE 管，请使用通孔滑块并跳过此步骤。  
+      <img src="doc/assembly_3.jpg" width="40%">
 
-6. 确保钢轴已经插入推杆滑块，把滑块组合体放入后底座中。然后将弹簧挂到底座上，最后使用 M2 螺丝和导轨固定器将其固定。你可以在钢轴上涂抹一些阻尼脂来减少滑块的回弹。  
-   <img src="doc/assembly_6.jpg" width="30%"> <img src="doc/assembly_7.jpg" width="50%">
+   2. 将拉簧嵌入到推杆滑块里，然后使用 M2 螺丝将滑块盖固定到推杆滑块上。  
+      <img src="doc/assembly_4.jpg" width="36%"> <img src="doc/assembly_5.jpg" width="40%">
+
+   3. 确保钢轴已经插入推杆滑块，把滑块组合体放入后底座中。然后将弹簧挂到底座上，最后使用 M2 螺丝和导轨固定器将其固定。你可以在钢轴上涂抹一些阻尼脂来减少滑块的回弹。  
+      <img src="doc/assembly_6.jpg" width="30%"> <img src="doc/assembly_7.jpg" width="50%">
+
+6. Chord Pico+ 版本的推杆组装：
+   1. 待完善。
+   2. 待完善。
 
 7. 安装按键的弹簧。  
    <img src="doc/assembly_8.jpg" width="70%">
 
 8. 现在进行另一次测试。通电并校准按键。按键和推杆应该正常工作。如果一切正常，请继续下一步。
 
-9. 可选但强烈推荐：使用一些泡棉胶带来减小按键噪音。你需要将泡棉胶带粘贴到 PCB（霍尔传感器正下方）以及按键挡板部分。它们可以显著减少按键下压和抬起时的噪音。  
+9.  可选但强烈推荐：使用一些泡棉胶带来减小按键噪音。你需要将泡棉胶带粘贴到 PCB（霍尔传感器正下方）以及按键挡板部分。它们可以显著减少按键下压和抬起时的噪音。  
    <img src="doc/assembly_9.jpg" width="80%">
 
-10. 如果面板在传感器的上方部位是白色材料打印的，请使用黑色马克笔将其涂黑，可以减少传感器被干扰的风险。  
+10.  如果面板在传感器的上方部位是白色材料打印的，请使用黑色马克笔将其涂黑，可以减少传感器被干扰的风险。  
     <img src="doc/assembly_10.jpg" width="70%">
 
-11. 将面板放置到底座上。两个辅助开关在安装过程中可能会干涉面板，因此需要将右侧推杆向左移动，并轻轻弯曲面板以将其卡入到位。然后使用 M3\*12mm 螺丝将面板固定到底座上。在拧紧时，面板可能会稍微被顶起，这时候你需要松开螺丝，然后在按下面板的同时重新拧紧，以确保其完全就位。  
+11.  将面板放置到底座上。两个辅助开关在安装过程中可能会干涉面板，因此需要将右侧推杆向左移动，并轻轻弯曲面板以将其卡入到位。然后使用 M3\*12mm 螺丝将面板固定到底座上。在拧紧时，面板可能会稍微被顶起，这时候你需要松开螺丝，然后在按下面板的同时重新拧紧，以确保其完全就位。  
     <img src="doc/assembly_11.jpg" width="70%">
 
-12. 现在进行另一次测试。通电并校准。确保一切正常工作。
+12.  现在进行另一次测试。通电并校准。确保一切正常工作。
 
 13. 安装旋钮把手。左侧是绿色，右侧是红色。使用最长的 M2 螺丝将它们固定。  
     <img src="doc/assembly_12.jpg" width="70%">

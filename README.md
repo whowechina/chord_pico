@@ -2,9 +2,11 @@
 [点这里可以切换到中文版](README_CN.md)
 
 <img src="doc/main.jpg" width="80%">
+<img src="doc/main2.jpg" width="80%">
 
 Features:
 * World's first Polaris Chord controller.
+* Two versions available: Chord Pico for 15.6 to 21 inches monitors, Chord Pico+ for 21.5 inches and above.
 * Almost all parts are 3D printed.
 * Hall effect keys with configurable travel distance.
 * RGB key lights with HID light support.
@@ -51,7 +53,7 @@ I made this project in my personal time without any sponsorship. I will continue
 
 ## HOW TO BUILD
 ### PCB and Components
-* Go to JLCPCB or any PCB vendor you like, and place an order with the gerber zip files (latest `Production\PCB\chord_pico_xxx.zip`), regular FR-4 board, black color, **1.6mm** thickness.
+* Go to JLCPCB or any PCB vendor you like, and place an order with the gerber zip files (latest `Production\PCB\chord_pico_xxx.zip` for Chord Pico or `Production\PCB\chord_plus_xxx.zip` for Chord Pico+), regular FR-4 board, black color, **1.6mm** thickness.
 
 * 1x Raspberry Pi Pico or pin-to-pin compatible clones, those with type-C port are strongly recommended.  
   https://www.raspberrypi.com/products/raspberry-pi-pico
@@ -82,7 +84,7 @@ I made this project in my personal time without any sponsorship. I will continue
 1. Be careful of 2 USB pins (holes) for the Pi Pico. It's a common oversight to either forget to solder them or to leave air bubbles during the process. To avoid this, solder slowly from only one side of the hole.  
    <img src="doc/usb_txrx.jpg" width="20%">
 2. There are many capacitors for decoupling. You don't need to solder them all. You can solder only some of them; just distribute them evenly.
-3. 22kohm resistor is for converting the photointerrupter output current to voltage. If you see a super sensitive photointerrupter, you need to use a lower value resistor, e.g. 15kohm.
+3. 22kohm resistor is for converting the photointerrupter output current to voltage. If you see a super sensitive photointerrupter, you need to use a lower value resistor, e.g. 15kohm; otherwise, if it's not sensitive enough, you can use a higher value resistor, e.g. 27kohm or 33kohm.
 
 ### Test the PCB
 * You can test the PCB now, put the firmware in.
@@ -106,15 +108,22 @@ I made this project in my personal time without any sponsorship. I will continue
 
 #### Parts
 * All files are in `Production\3DPrint` folder.
+* Use files with `+` for Chord Pico+, including `Chord Pico+`, `Key+` and `Fader+`.
 * Keys: `Key Combo - All Keys`, clear or transparent.
 * Rear Base: `Chord Pico - Rear.stl`, black. Enable support and use support material to have better screw holes.
-* Front Base: `Chord Pico - Front.stl`, black. Enable support and use support material to have better screw holes.
+* Front Base: `Chord Pico - Front.stl`, black. Enable support and use support material to have better screw holes. Note that for Chord Pico+ version, the front base is split into two parts: `Chord Pico+ - Left` and `Chord Pico+ - Right`.
 * Panel: `Chord Pico - Panel Combo.3mf`, a multi-color system is highly recommended, make the "Panel White Layer" white, others black. Print upside down.
-* Brim (Key Stopper): `Chord Pico - Brim Insert.stl` is recommended, but if you can't use heat-set inserts, use `Chord Pico - Brim.stl` instead (see notes below). Use black filament. Print upside down.
-* 2x Fader Slider: `Slider PTFE.stl` is recommended, but if you can't find proper PTFE tube, use `Slider Thruhole.stl` instead (see notes below). Must be white.  
-* 2x Fader Seal: `Slider Seal.stl`, white.
-* 4x Rail Fixers: `Chord Pico - Rail Fixer.stl`, color doesn't matter.
-* 2x Fader Knobs: `Fader - Knob.stl`, one in green, one in red.
+* Brim (Key Stopper): `Chord Pico - Brim Insert.stl` is recommended, but if you can't use heat-set inserts, use `Chord Pico - Brim.stl` instead (see notes below). Use black filament. Print upside down. Note that for Chord Pico+ version, the brim is split into two parts: `Chord Pico+ - BrimLeft` and `Chord Pico+ - BrimRight`, both use heat-set inserts.
+* Fader parts for Chord Pico version only:
+  * 2x Fader Slider: `Slider PTFE.stl` is recommended, but if you can't find proper PTFE tube, use `Slider Thruhole.stl` instead (see notes below). Must be white.  
+  * 2x Fader Seal: `Slider Seal.stl`, white.
+  * 4x Rail Fixers: `Chord Pico - Rail Fixer.stl`, color doesn't matter.
+  * 2x Fader Knobs: `Fader - Knob.stl`, one in green, one in red.
+* Fader parts for Chord Pico+ version only:
+  * 2x Fader seats: `Fader+ - Seat`, black, embed heat-set inserts after printing.
+  * 2x Fader curtains: `Fader+ - Curtain`, black.
+  * 2x Reflectors: `Fader+ - Reflector`, white.
+  * 2x Fader Knobs: `Fader+ - Knob+.stl`, one in green, one in red.
 
 #### Notes
 1. For the Brim (Key Stopper), heat-set inserts are recommended; they provide a better solution than self-tapping threads. But if you can't find them or don't have the tools, you can use self-tapping version instead, just be careful when screwing, do it slowly and don't overtighten.
@@ -122,49 +131,69 @@ I made this project in my personal time without any sponsorship. I will continue
 
 ### Assembly
 #### Other components needed
-* 13x M3\*6mm screws for the PCB to the front and rear base.
+* 13x M3\*6mm screws for the PCB to the front and rear base. For Chord Pico+ version, 18x are needed.
 * 7x M3\*12mm screws for the panel to the rear base.
-* 7x M2\*10mm screws for the front base to the brim.
-* 24x M2\*7mm screws for the slider.
-* 2x M2\*16~18mm for the knob.
+* 7x M2\*10mm screws for the front base to the brim. For Chord Pico+ version, 9x are needed.
 
-* 7x M2\*3mm\*3mm (outer diameter\*height) heat-set inserts, if you use them for the brim.
+* Fader components for Chord Pico version only:
+  * 4x 2mm\*70mm (diameter\*length) steel shafts for the fader rails.
+  * Some 2.2mm\*4mm or 2.3mm\*4mm (inner diameter\*outer diameter) PTFE tubes.
+  * 4x 0.3mm\*5mm\*15mm (wire diameter\*outer diameter\*length) close-wound tension springs, for the faders.
+  * 4x M2\*16~18mm screws for securing the rail fixers to the base.
+  * 8x M2\*7mm screws for securing the slider seal to the fader slider.
+  * 24x M2\*7mm screws for the slider.
+  * 2x M2\*16~18mm screws for the fader knobs.
 
-* 1x 2mm\*240mm (diameter\*length) steel shaft for the keys, if you can't find one, you can use 3x 2mm\*80mm or 4x 4mm\*60mm, or even 6x 2mm\*40mm instead.
+* Fader components for Chord Pico+ version only:
+  * 2x MGN7 100mm linear rails.
+  * 2x MGN7C sliders.
+  * 4x 0.4mm\*5mm\*30mm (wire diameter\*outer diameter\*length) close-wound tension springs, for the faders.
+  * 14x M3\*8mm screws for securing the rails to the base, quantity can be reduced as needed.
+  * 8x M2 washers, for the screws that secure the tension springs.
+  * 4x M2\*4mm screws for securing the tension springs on the slider side.
+  * 4x M2\*8mm screws for securing the tension springs on the spring posts at both ends of the rails.
+  * 8x M2\*8mm screws for securing the curtains and slider seat to the slider.
+  * 2x M2.5\*18mm screws for securing the fader knobs to the slider seat.
+  
+* 7x M2\*3mm\*3mm (outer diameter\*height) heat-set inserts for Chord Pico brim. For Chord Pico+, 9x are needed.
+* Only for Chord Pico+: 9x M3\*4mm\*4mm (outer diameter\*height) heat-set inserts for the panel.
 
-* 4x 2mm\*70mm (diameter\*length) steel shafts for the fader rails.
+* 1x 2mm diameter steel shaft. 240mm length for Chord Pico, 340mm length for Chord Pico+.
 
-* 12x 0.4\*5\*10\*6N (0.4mm wire diameter, 5mm outer diameter, 10mm free length, 6 turns) springs.
+* 12x 0.4\*5\*10\*6N (0.4mm wire diameter, 5mm outer diameter, 10mm free length, 6 turns) springs. For Chord Pico+, 24x are needed.
 * 12x 3mm\*2mm (diameter\*height) axial magnetized cylinder magnets.
-* Some 2.2mm\*4mm or 2.3mm\*4mm (inner diameter\*outer diameter) PTFE tubes.
 * Some white silicone adhesive, such as K-704 silicone industrial adhesive.
 * Some damping grease, low viscosity, such as Runsai's type-2.
 
-* 4x 0.3mm\*5mm\*15mm (wire diameter\*outer diameter\*length) close-wound tension springs, for the faders.
-
 * Some 0.5~0.8mm thick self-adhesive foam tape (Poron or EVA) for damping.
 
-* Some 10mm\*2mm or 10mm\*2mm (diameter\*height) silicone self-adhesive anti-slip pads.
+* Some 10mm\*2mm or 10mm\*2mm (diameter\*height) black silicone self-adhesive anti-slip pads.
 
 #### Steps
 Please note that the design may change in the future, but the assembly steps will remain the same. So ignore minor differences in some details.
 
+1. Please install heat-set inserts into the parts that require them.
 
-1. Use the M3\*6mm screws to fix the PCB to the front and rear base part.  
+2. Use the M3\*6mm screws to fix the PCB to the front and rear base part. Note that for Chord Pico+ version, the base is assembled from three parts.  
    <img src="doc/assembly_1.jpg" width="70%">
 
-2. Insert the magnets into the slots at the front of the keys and secure them with adhesive (such as white RTV 704 silicone glue).
-3. Install the keys. Use the steel shaft to go through all keys, and then embed the steel shaft into the hinge sockets in the rear base.  
+3. Insert the magnets into the slots at the front of the keys and secure them with adhesive (such as white RTV 704 silicone glue).
+
+4. Install the keys. Use the steel shaft to go through all keys, and then embed the steel shaft into the hinge sockets in the rear base.  
    <img src="doc/assembly_2.jpg" width="70%">
 
-4. Cut some pieces of PTFE tube and embed them into the slider. They provide smoothness while sliding the faders. If you do not use PTFE tube, please use the through-hole slider and skip this step.  
-   <img src="doc/assembly_3.jpg" width="40%">
+5. Fader assembly for Chord Pico version only:
+   1. Cut some pieces of PTFE tube and embed them into the slider. They provide smoothness while sliding the faders. If you do not use PTFE tube, please use the through-hole slider and skip this step.  
+      <img src="doc/assembly_3.jpg" width="40%">
 
-5. Insert the close-wound tension springs into the slider, then use M2 screws to secure the slider seal to the slider.  
-   <img src="doc/assembly_4.jpg" width="36%"> <img src="doc/assembly_5.jpg" width="40%">
+   2. Insert the close-wound tension springs into the slider, then use M2 screws to secure the slider seal to the slider.  
+      <img src="doc/assembly_4.jpg" width="36%"> <img src="doc/assembly_5.jpg" width="40%">
 
-6. While the steel shafts are inserted, put the slider combo into the rear base. Then hook the springs to the base and finally use M2 screws and the rail fixers to secure the slider combo. You can apply a little bit of damping grease to the steel shafts to make the slider less bouncy.  
-   <img src="doc/assembly_6.jpg" width="30%"> <img src="doc/assembly_7.jpg" width="50%">
+   3. While the steel shafts are inserted, put the slider combo into the rear base. Then hook the springs to the base and finally use M2 screws and the rail fixers to secure the slider combo. You can apply a little bit of damping grease to the steel shafts to make the slider less bouncy.  
+      <img src="doc/assembly_6.jpg" width="30%"> <img src="doc/assembly_7.jpg" width="50%">
+6. Fader assembly for Chord Pico+ version only:
+   1. WIP
+   2. WIP
 
 7. Install the springs for the keys.  
    <img src="doc/assembly_8.jpg" width="70%">
@@ -174,10 +203,10 @@ Please note that the design may change in the future, but the assembly steps wil
 9. Optional but highly recommended: use some form tape to dampen the key noise. You need to stick the foam tape to the PCB (right below the Hall sensors) and the key stopper (brim) part. They reduce the key down and key up noise significantly.  
    <img src="doc/assembly_9.jpg" width="80%">
 
-10. If the area of the panel above the sensors is printed with white material, use a black marker to color it. This helps reduce the risk of sensor interference.  
+10.  If the area of the panel above the sensors is printed with white material, use a black marker to color it. This helps reduce the risk of sensor interference.  
     <img src="doc/assembly_10.jpg" width="70%">
 
-11. Put the panel onto the base. The two auxiliary switches can interfere with the panel during installation, so move the right slider to the left and gently flex the panel to snap it into place. Then use the M3\*12mm screws to secure the panel to the base. When screwing, the panel will be pushed away from the base a little bit. You need to fully unscrew and then re-screw while pressing the panel down to make sure it's fully seated.  
+11.  Put the panel onto the base. The two auxiliary switches can interfere with the panel during installation, so move the right slider to the left and gently flex the panel to snap it into place. Then use the M3\*12mm screws to secure the panel to the base. When screwing, the panel will be pushed away from the base a little bit. You need to fully unscrew and then re-screw while pressing the panel down to make sure it's fully seated.  
     <img src="doc/assembly_11.jpg" width="70%">
 
 12. You may have another test. Power on and calibrate. Make sure everything still works.
