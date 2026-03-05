@@ -39,9 +39,15 @@ static void disp_hall()
     }
 }
 
+static void disp_hid()
+{
+    printf("[HID]\n");
+    printf("  Report Fader Raw: %s.\n", chord_cfg->hid.raw_fader ? "On" : "Off");
+}
+
 void handle_display(int argc, char *argv[])
 {
-    const char *usage = "Usage: display [light|he]\n";
+    const char *usage = "Usage: display [light|hall|hid]\n";
     if (argc > 1) {
         printf(usage);
         return;
@@ -50,10 +56,11 @@ void handle_display(int argc, char *argv[])
     if (argc == 0) {
         disp_light();
         disp_hall();
+        disp_hid();
         return;
     }
 
-    const char *choices[] = {"light", "he" };
+    const char *choices[] = {"light", "hall", "hid"};
     switch (cli_match_prefix(choices, count_of(choices), argv[0])) {
         case 0:
             disp_light();
@@ -61,6 +68,8 @@ void handle_display(int argc, char *argv[])
         case 1:
             disp_hall();
             break;
+        case 2:
+            disp_hid();
         default:
             printf(usage);
             break;
@@ -135,6 +144,27 @@ static void handle_trigger(int argc, char *argv[])
     disp_hall();
 }
 
+static void handle_raw_fader(int argc, char *argv[])
+{
+    const char *usage = "Usage: raw_fader <on|off>\n";
+
+    if (argc != 1) {
+        printf(usage);
+        return;
+    }
+
+    const char *choices[] = {"on", "off"};
+    int match = cli_match_prefix(choices, count_of(choices), argv[0]);
+    if (match < 0) {
+        printf(usage);
+        return;
+    }
+
+    chord_cfg->hid.raw_fader = (match == 0);
+    config_changed();
+    disp_hid();
+}
+
 static void handle_debug(int argc, char *argv[])
 {
     const char *usage = "Usage: debug <hall|fader>\n";
@@ -173,6 +203,7 @@ void commands_init()
     cli_register("level", handle_level, "Set LED brightness level.");
     cli_register("calibrate", handle_calibrate, "Calibrate the key sensors.");
     cli_register("trigger", handle_trigger, "Set Hall effect switch triggering.");
+    cli_register("raw_fader", handle_raw_fader, "Set if raw fader is included in HID report.");
     cli_register("debug", handle_debug, "Toggle debug features.");
     cli_register("save", handle_save, "Save config to flash.");
     cli_register("factory", handle_factory_reset, "Reset everything to default.");

@@ -25,15 +25,14 @@ typedef struct __attribute__((packed)) {
         uint8_t off[12];
     } trigger;
     struct {
-        bool reversed[2];
-        uint8_t not_used[7];
-    } fader;
-    struct {
-        rgb_hsv_t colors[12];
         uint8_t level_fader;
         uint8_t level_key;
-        uint8_t not_used[14];
+        rgb_hsv_t key[24];
+        uint8_t not_used[32];
     } light;
+    struct {
+        bool raw_fader;
+    } hid;
 } chord_cfg_t;
 
 typedef struct {

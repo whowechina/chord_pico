@@ -126,17 +126,23 @@ struct __attribute__((packed)) {
 
 static void hid_update()
 {
-    uint32_t buttons = button_read() ^ 0xffc; // invert the fader bits
-
-    hid_report.buttons = buttons << 12;
+    hid_report.buttons = 0;
     for (int i = 0; i < 12; i++) {
         if (hall_key_actuated(i)) {
             hid_report.buttons |= (1 << i);
         }
     }
 
+    uint32_t buttons = button_read() ^ 0xffc; // invert the fader bits
+
     hid_report.joy[0] = fader_bits_to_axis((buttons >> 2) & 0x1f);
     hid_report.joy[1] = fader_bits_to_axis((buttons >> 7) & 0x1f);
+
+    if (!chord_cfg->hid.raw_fader) {
+        buttons &= 0x3; // only keep aux bits
+    }
+
+    hid_report.buttons |= (buttons << 12);
 
     static uint64_t last_report_time = 0;
     if (tud_hid_ready()) {
