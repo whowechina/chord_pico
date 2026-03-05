@@ -11,7 +11,7 @@
 * 几乎所有部件均为 3D 打印。
 * 霍尔效应传感器按键，可自定义触发行程。
 * RGB 按键灯光，支持 HID 灯光。
-* 和街机一致的推杆传感器设计；
+* 和街机一致的推杆传感器设计。
 * 完全开源。
 
 感谢许多尊敬的爱好者和公司将他们的工具或材料免费或开源（KiCad，OnShape，InkScape，Raspberry 相关工具, 嘉立创、捷配等）。
@@ -31,7 +31,7 @@
 ## 其他项目
 你也可以查看我其他的酷炫项目。
 
-<img src="https://github.com/whowechina/popn_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/iidx_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/iidx_teeny/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/chu_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/mai_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/diva_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/aic_pico/raw/main/doc/main.gif" height="100px"> <img src="https://github.com/whowechina/groove_pico/raw/main/doc/main.gif" height="100px">  <img src="https://github.com/whowechina/geki_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/musec_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/ju_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/bishi_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/nos_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/voltex_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/chord_pico/raw/main/doc/main.jpg" height="100px">
+<img src="https://github.com/whowechina/popn_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/iidx_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/iidx_teeny/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/chu_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/mai_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/diva_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/aic_pico/raw/main/doc/main.gif" height="100px"> <img src="https://github.com/whowechina/groove_pico/raw/main/doc/main.gif" height="100px">  <img src="https://github.com/whowechina/geki_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/musec_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/ju_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/bishi_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/nos_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/voltex_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/chord_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/arcade_pico/raw/main/doc/main.jpg" height="100px">
 
 * Popn Pico: https://github.com/whowechina/popn_pico
 * IIDX Pico: https://github.com/whowechina/iidx_pico
@@ -48,6 +48,7 @@
 * Nos Pico: https://github.com/whowechina/nos_pico
 * Voltex Pico: https://github.com/whowechina/voltex_pico
 * Chord Pico: https://github.com/whowechina/chord_pico
+* Arcade Pico: https://github.com/whowechina/arcade_pico
 
 ## **声明** ##
 我在个人业余时间内制作了这个项目，并将继续改进这个项目。我已尽我所能确保所有内容的准确性和功能性，但总有可能出现错误。如果你因使用这个开源项目而造成时间或金钱的损失，我不能负责。感谢你的理解。
@@ -91,9 +92,9 @@
 * 很可能所有按键的 LED 会亮起并闪烁。
 * 左推杆 LED 会呈现绿色，右推杆 LED 会呈现粉色。
 * Chord Pico 应该会被电脑识别为一个 USB HID 设备，这里是测试页面：  
-  https://greggman.github.io/html5-gamepad-test/
+  https://whowechina.github.io/iidx_pico/Tools/gamepad_test.html
 * 使用终端工具连接到 Chord Pico 的命令行接口：  
-  https://googlechromelabs.github.io/serial-terminal/
+  https://whowechina.github.io/iidx_pico/Tools/cli_tool.html
 * 使用 `debug hall` 命令来开关霍尔效应传感器调试模式。开启后，你可以看到实时的传感器数值。可以使用一块小磁铁逐个测试它们。当磁铁靠近对应的传感器时，数值应该会有明显变化。如果你注意到数值异常，请检查模拟信号多路复用器和对应霍尔效应传感器的焊接。
 * 使用 `debug fader` 命令来开关推杆传感器调试模式。开启后，你可以看到实时的推杆传感器状态。你可以使用一块白色物体（例如纸张），在传感器上方 5mm 处挥动，看输出的变化。
 * 只有当 PCB 完全正常后，才能进行组装。
@@ -132,7 +133,7 @@
 ### 组装
 #### 所需其他组件
 * 13x M3\*6mm 螺丝用于将 PCB 和前后底座固定在一起，Chord Pico+ 版本需要 18x。
-* 7x M3\*12mm 螺丝用于将面板固定到后底座。
+* 7x M3\*10mm 螺丝用于将面板固定到后底座。
 * 7x M2\*10mm 螺丝用于将按键挡板固定到前底座，Chord Pico+ 版本需要 9x。
 
 * 仅用于 Chord Pico 版本的推杆组件：
@@ -154,10 +155,10 @@
   * 2x M2.5\*18mm 螺丝用于固定推杆把手到推杆底座上。
   
 * 7x M2\*3mm\*3mm (外径\*高度) 热熔螺母，Chord Pico 需要 7x，Chord Pico+ 需要 9x。
-* 仅用于 Chord Pico+ 面板的 9x M3\*4mm\*4mm (外径\*高度) 热熔螺母。
-* 仅用于 Chord Pico+ 推杆底座的 2x M2.5\*3.5mm\*6mm (外径\*高度) 热熔螺母。
+* 7x M3\*4mm\*4mm (外径\*高度) 热熔螺母用于 Chord Pico 面板。Chord Pico+ 需要 9x。
+* 仅用于 Chord Pico+：2x M2.5\*3.5mm\*6mm (外径\*高度) 热熔螺母用于推杆底座。
 
-* 1x 2mm 直径的钢轴，Chord Pico 需要 240mm 长度，Chord Pico+ 需要 340mm 长度。
+* 1x 2mm 直径的钢轴，Chord Pico 需要 250mm 长度，Chord Pico+ 需要 340mm 长度。
 
 * 12x 0.4\*5\*10\*6N (0.4mm 线径, 5mm 外径, 10mm 自由长度, 6 圈) 弹簧。对于 Chord Pico+，则需要 24x。
 * 12x 3mm\*2mm (直径\*高度) 轴向磁化的圆柱形磁铁。
@@ -205,7 +206,7 @@
 7. 安装按键的弹簧。Chord Pico+ 每个按键有两个弹簧。  
    <img src="doc/assembly_5.jpg" width="70%">
 
-8. 现在进行另一次测试。通电并校准按键。按键和推杆应该正常工作。如果一切正常，请继续下一步。
+8. 再做一次测试。通电并校准按键。按键和推杆应该正常工作。如果一切正常，请继续下一步。
 
 9. 可选但强烈推荐：使用一些泡棉胶带来减小按键噪音。你需要将泡棉胶带粘贴到 PCB（霍尔传感器正下方）以及按键挡板部分。它们可以显著减少按键下压和抬起时的噪音。  
    <img src="doc/assembly_6.jpg" width="80%">
@@ -216,7 +217,7 @@
 11. 仅 Chord Pico+。在面板内侧顶部贴上薄的 PTFE/UHMW 胶带，这样推杆遮板滑动时不会发出吱吱声。  
     <img src="doc/assembly_8.jpg" width="70%">
 
-12. 将面板放置到底座上。两个辅助开关在安装过程中可能会干涉面板，因此需要将右侧推杆向左移动，并轻轻弯曲面板以将其卡入到位。然后使用 M3\*12mm 螺丝将面板固定到底座上。在拧紧时，面板可能会稍微被顶起，这时候你需要松开螺丝，然后在按下面板的同时重新拧紧，以确保其完全就位。  
+12. 将面板放置到底座上。两个辅助开关在安装过程中可能会干涉面板，因此需要将右侧推杆向左移动，并轻轻弯曲面板以将其卡入到位。然后使用 M3\*10mm 螺丝将面板固定到底座上。  
     <img src="doc/assembly_11.jpg" width="70%">
 
 13. 现在进行另一次测试。通电并校准。确保一切正常工作。
@@ -224,7 +225,7 @@
 14. 安装旋钮把手。左侧是绿色，右侧是红色。使用最长的螺丝将它们固定（Chord Pico 用 M2，Chord Pico+ 用 M2.5）。  
     <img src="doc/assembly_12.jpg" width="70%">
 
-15. 安装按键挡板部分。如果你使用热熔螺母，请先使用合适的工具将其安装到按键挡板中。使用 M2\*10mm 螺丝将按键挡板固定到前底座上。  
+15. 安装按键挡板部分。如果你使用热熔螺母，请提前装好，然后使用 M2\*10mm 螺丝把按键挡板固定到前底座上。  
     <img src="doc/assembly_13.jpg" width="70%">
 
 16. 将防滑垫粘贴到控制器底部。
@@ -239,7 +240,7 @@
 * 对于新设备，按住 BOOTSEL 按钮的同时将 USB 连接到电脑，会出现一个名为 "RPI-RP2" 的磁盘。将 UF2 固件二进制文件拖入其中即可完成烧录。提醒：控制器底部有一个小孔，正对着 BOOTSEL 按钮。
 * 如果设备已经有固件，你可以通过命令行使用 `update` 命令，或者在连接 USB 时按住两个辅助按钮进入更新模式。
 * 要访问命令行接口，可以使用这个 Web Serial Terminal 工具连接到控制器的命令行端口。（注意：输入 "?" 可以查看帮助）  
-  https://googlechromelabs.github.io/serial-terminal/
+  https://whowechina.github.io/iidx_pico/Tools/cli_tool.html
 
 ### 使用方法
 * 即插即用。

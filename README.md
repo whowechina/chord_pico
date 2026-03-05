@@ -30,7 +30,7 @@ If you're interested in buying from me, or in commercial use, please contact me 
 ## My Other Projects
 You can check out my other cool projects.
 
-<img src="https://github.com/whowechina/popn_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/iidx_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/iidx_teeny/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/chu_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/mai_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/diva_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/aic_pico/raw/main/doc/main.gif" height="100px"> <img src="https://github.com/whowechina/groove_pico/raw/main/doc/main.gif" height="100px">  <img src="https://github.com/whowechina/geki_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/musec_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/ju_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/bishi_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/nos_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/voltex_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/chord_pico/raw/main/doc/main.jpg" height="100px">
+<img src="https://github.com/whowechina/popn_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/iidx_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/iidx_teeny/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/chu_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/mai_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/diva_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/aic_pico/raw/main/doc/main.gif" height="100px"> <img src="https://github.com/whowechina/groove_pico/raw/main/doc/main.gif" height="100px">  <img src="https://github.com/whowechina/geki_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/musec_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/ju_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/bishi_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/nos_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/voltex_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/chord_pico/raw/main/doc/main.jpg" height="100px"> <img src="https://github.com/whowechina/arcade_pico/raw/main/doc/main.jpg" height="100px">
 
 * Popn Pico: https://github.com/whowechina/popn_pico
 * IIDX Pico: https://github.com/whowechina/iidx_pico
@@ -47,6 +47,7 @@ You can check out my other cool projects.
 * Nos Pico: https://github.com/whowechina/nos_pico
 * Voltex Pico: https://github.com/whowechina/voltex_pico
 * Chord Pico: https://github.com/whowechina/chord_pico
+* Arcade Pico: https://github.com/whowechina/arcade_pico
 
 ## **Disclaimer** ##
 I made this project in my personal time without any sponsorship. I will continue to improve the project. I have done my best to ensure that everything is accurate and functional, but there's always a chance that mistakes may occur. I cannot be held responsible for any loss of time or money that may result from using this open source project. Thank you for your understanding.
@@ -91,9 +92,9 @@ I made this project in my personal time without any sponsorship. I will continue
 * Most likely all key LEDs will light up and flash.
 * Left fader LEDs will light up green, right fader LEDs will light up pink.
 * Chord Pico should be recognized as a USB HID device. Here's the test page.  
-  https://greggman.github.io/html5-gamepad-test/
+  https://whowechina.github.io/iidx_pico/Tools/gamepad_test.html
 * Use a terminal tool to connect to Chord Pico's command line interface.
-  https://googlechromelabs.github.io/serial-terminal/
+  https://whowechina.github.io/iidx_pico/Tools/cli_tool.html
 * Use `debug hall` to toggle hall effect sensor debug mode. When it's on, you can see the real-time sensor values. Use a small magnet to test them one by one. The value should change significantly when a magnet is close to the corresponding sensor. If you notice strange values, check the soldering of the multiplexer and the corresponding hall effect sensor.
 * Use `debug fader` to toggle fader sensor debug mode. When it's on, you can see real-time fader sensor status. You can use a white object (e.g. paper), waving it 5mm above the sensor to see the response.
 * Only when PCB is fully functional, you can proceed to the assembly.
@@ -132,7 +133,7 @@ I made this project in my personal time without any sponsorship. I will continue
 ### Assembly
 #### Other components needed
 * 13x M3\*6mm screws for the PCB to the front and rear base. For Chord Pico+ version, 18x are needed.
-* 7x M3\*12mm screws for the panel to the rear base.
+* 7x M3\*10mm screws for the panel to the rear base.
 * 7x M2\*10mm screws for the front base to the brim. For Chord Pico+ version, 9x are needed.
 
 * Fader components for Chord Pico only:
@@ -154,10 +155,10 @@ I made this project in my personal time without any sponsorship. I will continue
   * 2x M2.5\*18mm screws for securing the fader knobs to the fader seats.
   
 * 7x M2\*3mm\*3mm (outer diameter\*height) heat-set inserts for Chord Pico brim. For Chord Pico+, 9x are needed.
-* Only for Chord Pico+: 9x M3\*4mm\*4mm (outer diameter\*height) heat-set inserts for the panel.
+* 7x M3\*4mm\*4mm (outer diameter\*height) heat-set inserts for Chord Pico panel. For Chord Pico+, 9x are needed.
 * Only for Chord Pico+: 2x M2.5\*3.5mm\*6mm (outer diameter\*height) heat-set inserts for the fader seats.
 
-* 1x 2mm diameter steel shaft. 240mm length for Chord Pico, 340mm length for Chord Pico+.
+* 1x 2mm diameter steel shaft. 250mm length for Chord Pico, 340mm length for Chord Pico+.
 
 * 12x 0.4\*5\*10\*6N (0.4mm wire diameter, 5mm outer diameter, 10mm free length, 6 turns) springs. For Chord Pico+, 24x are needed.
 * 12x 3mm\*2mm (diameter\*height) axial magnetized cylinder magnets.
@@ -214,15 +215,15 @@ Please note that the design may change in the future, but the assembly steps wil
 11. Chord Pico+ only. Apply thin PTFE/UHMW tape to the inner top surface of the panel so the slider curtains don’t squeak when sliding.  
     <img src="doc/assembly_8.jpg" width="70%">
 
-12. Put the panel onto the base. The two auxiliary switches can interfere with the panel during installation, so move the right slider to the left and gently flex the panel to snap it into place. Then use the M3\*12mm screws to secure the panel to the base. When screwing, the panel will be pushed away from the base a little bit. You need to fully unscrew and then re-screw while pressing the panel down to make sure it's fully seated.  
+12. Put the panel onto the base. The two auxiliary switches can interfere with the panel during installation, so move the right slider to the left and gently flex the panel to snap it into place. Then use the M3\*10mm screws to secure the panel to the base.  
     <img src="doc/assembly_11.jpg" width="70%">
 
-13. You may have another test. Power on and calibrate. Make sure everything still works.
+13. Perform another test. Power on and calibrate. Make sure everything still works.
 
 14. Install the knobs. The left is green and the right one is red. Secure them using the long screws (M2 for Chord Pico, M2.5 for Chord Pico+).
     <img src="doc/assembly_12.jpg" width="70%">
 
-15. Install the brim (key stopper) part. If you use heat-set inserts, use the proper tools to install them into the brim (key stopper) first. Use M2\*10mm screws to secure the brim to the front base.  
+15. Install the brim (key stopper) part. If you use heat-set inserts, use the proper tools to install them into the brim first. Use M2\*10mm screws to secure the brim to the front base.  
     <img src="doc/assembly_13.jpg" width="70%">
 
 16. Attach the anti-slip pads to the bottom of the controller.
@@ -237,7 +238,7 @@ Please note that the design may change in the future, but the assembly steps wil
 * For the new build, hold the BOOTSEL button while connecting the USB to a PC, a disk named "RPI-RP2" will appear. Drag the UF2 firmware binary file into it. Note that there is a small hole on the bottom side of the controller, aligned with the BOOTSEL button.
 * If it's already running the firmware, you can either use `update` in the command line or hold down the two auxiliary switches while connecting to USB to enter update mode.
 * To access the command line, you can use this Web Serial Terminal to connect to the controller's command line port. (Note: "?" is for help)  
-  https://googlechromelabs.github.io/serial-terminal/
+  https://whowechina.github.io/iidx_pico/Tools/cli_tool.html
 
 ### Usage
 * Just plug and play.
